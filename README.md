@@ -72,15 +72,17 @@ Main topics listed below.
 * Schoof algorithm
 
 ## Linear Algebra:
+* Matrices
 * Linear basis
-* Vector space
 * Matrix diagoalisation
 * Graph representation through matrix
 * Matrix multiplication
-* Eigenvalues
-* Jordan decomposition PDP^(-1)
 * Matrix exponentiation
 * LU-decomposition (factorisation)
+* Vector (linear) space
+* Eigenvalues
+* Jordan decomposition PDP^(-1)
+* Affine space
 * Fast matrix multiplication
 
 ## Convolution theorem and its applications:
