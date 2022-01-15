@@ -11,6 +11,14 @@ Main topics listed below.
 
 # Index 
 
+## Math analisis:
+* Basic integration
+* Hamma function
+* Harmonic series
+* Rieman series (Z-function)
+* Taylor series
+* Lagrange polynomial
+
 ## Abstract algebra:
 * Sets
 * Group theory (Abelian, Lee, Half-groups and group-like objects)
@@ -78,6 +86,7 @@ Main topics listed below.
 * Multi-dimensional Fourier transform
 * Number theoretic transform
 * Convolution theorem (Cyclic, Acyclic and Linear Convolutions)
+* Z-transform
 * Walsh-Hadamard transform
 * Fast multiplications in long arithmetics using convolution theorem
 * Fast exponentiation in long arithmetics
