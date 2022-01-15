@@ -96,6 +96,8 @@ Main topics listed below.
 * Fast multiplications in long arithmetics using convolution theorem
 * Fast exponentiation in long arithmetics
 
+___
+
 ### Recommended order of topics' exploration
 Topics pretend to be independent from each other as much as possible. There is no matter which topic you start from with almost no exceptions.
 My recommendations:
