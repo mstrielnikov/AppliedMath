@@ -27,6 +27,7 @@ List of usable internet sources by topics.
 
 # Linear algebra
 * [Habr: Linear group encoding](https://habr.com/ru/post/453130/)
+* [Wikipedia: Vector (linear) space](https://en.wikipedia.org/wiki/Affine_space)
 
 # Convolution theorem and its applications
 * [Faster integer multiplication using FFT in 2-basis](https://ivv5hpp.uni-muenster.de/u/cl/WS2007-8/mult.pdf)
