@@ -42,3 +42,4 @@ List of usable internet sources by topics.
 # Code & PoC
 * [Montgomery reduction](https://rosettacode.org/wiki/Montgomery_reduction#C.2B.2B)
 * [Asecurity: Galua Field arifmetics implemented on Rust](https://asecuritysite.com/gf)
+* [Asecurity: Galua Field arifmetics and irreducible polynomials implemented on Rust](https://asecuritysite.com/gf/gf2)
