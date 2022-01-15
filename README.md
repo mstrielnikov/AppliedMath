@@ -3,7 +3,7 @@
 Some essential math topics devoted pure math theory and applicational ones.
 
 These theoretical basis covers Computer Science areas such as:
-* Cryptography (in a very close and detailed [look](https://github.com/mstrielnikov/Cryptography#cryptography))
+* Cryptography (in a very close [look](https://github.com/mstrielnikov/Cryptography#cryptography))
 * Information encoding & image processing
 * Fast computer arithmetics algorithms
 * Fuzzy logic and AI related math
