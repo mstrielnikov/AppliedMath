@@ -1,9 +1,13 @@
 # Math
 
 Some essential math topics devoted pure math theory and applicational ones.
+These theoretical basis covers Computer Science areas such as:
+* Cryptography (in a very close and detailed look)
+* Information encoding & image processing
+* Fast computer arithmetics algorithms
+* Fuzzy logic and AI related math
 
-
-Main topics indexed below.
+Main topics listed below.
 
 # Index 
 
