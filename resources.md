@@ -40,4 +40,5 @@ List of usable internet sources by topics.
 * [VMath](http://vmath.ru/vf5/)
 
 # Code & PoC
-[Montgomery reduction](https://rosettacode.org/wiki/Montgomery_reduction#C.2B.2B)
+* [Montgomery reduction](https://rosettacode.org/wiki/Montgomery_reduction#C.2B.2B)
+* [Asecurity: Galua Field arifmetics implemented on Rust](https://asecuritysite.com/gf)
