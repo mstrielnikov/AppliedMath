@@ -86,10 +86,10 @@ Main topics listed below.
 ## Convolution theorem and its applications:
 * Fourier series (continuous)
 * Fourier transform (Complex, Real, Descrete, Modular over Z/p, Binary etc.)
+* Walsh-Hadamard transform
+* Z-transform
 * Multi-dimensional Fourier transform
 * Number theoretic transform
 * Convolution theorem (Cyclic, Acyclic and Linear Convolutions)
-* Z-transform
-* Walsh-Hadamard transform
 * Fast multiplications in long arithmetics using convolution theorem
 * Fast exponentiation in long arithmetics
