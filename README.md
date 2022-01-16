@@ -15,12 +15,36 @@ Main topics listed below.
 # Index 
 
 ## Math analisis:
-* Basic integration
+* Integration
 * Hamma function
 * Harmonic series
-* Rieman series (Z-function)
+* Rieman series (Zeta-function)
 * Taylor series
 * Lagrange polynomial
+* Fourier series 
+
+## Linear Algebra and Application:
+* Matrices
+* Graph representation through matrix
+* Matrix diagoalisation
+* Linear basis
+* Inverse matrix
+* Matrix product
+* Vector (linear) space
+* Eigenvalues
+* Jordan decomposition PDP^(-1)
+* LU-decomposition
+* Affine space
+* Matrix Exponentiation
+* Matrix Factorial
+* Fourier transform (Complex, Real, Descrete, Modular over Z/p, Binary etc.)
+* Walsh-Hadamard transform
+* Z-transform
+* Multi-dimensional Fourier transform
+* Number theoretic transform
+* Convolution theorem (Cyclic, Acyclic and Linear Convolutions)
+* Fast polynomial multiplication in long arithmetics convolution theorem
+* Fast polynomial exponentiation in long arithmetics
 
 ## Abstract algebra:
 * Sets
@@ -37,23 +61,25 @@ Main topics listed below.
 * Category theory
 
 ## Number theory:
-* General arithmetic theorem
-* Euclid algorithms and applications
+* Main arithmetic theorem
+* Euclidian algorithms and its applications
 * GCD & LCM
 * Diophan equations
 * Modular math
 * Phermat theorem
 * Euler function
-* Chienese reminder theorem
 * Mobius function
+* Chienese reminder theorem
 * Lezhandre symbol
 * Hilbert Symbol
-* Descrete logarithm
+* Prime numbers (Fermat Primes, Mersenne, Sofi-Germen, Chairlmikele)
+* Prime numbers' tests (Fermat)
+* Modular comparisons
+* Index
 * Zech logarithm
-* Prime numbers theory
-* Prime numbers' types
-* Prime number tests
-* Prime number factorisation algorithms
+* Descrete logarithm
+* Prime numbers' search algoritms
+* Prime number factorisation algorithms (Quadratic sieve, General number sieve)
 
 ## Elliptical curves:
 * Cubic curves
@@ -71,35 +97,9 @@ Main topics listed below.
 * Elliptical curve order
 * Schoof algorithm
 
-## Linear Algebra:
-* Matrices
-* Linear basis
-* Matrix diagoalisation
-* Graph representation through matrix
-* Matrix multiplication
-* Matrix exponentiation
-* LU-decomposition (factorisation)
-* Vector (linear) space
-* Eigenvalues
-* Jordan decomposition PDP^(-1)
-* Affine space
-* Fast matrix multiplication
-
-## Convolution theorem and its applications:
-* Fourier series (continuous)
-* Fourier transform (Complex, Real, Descrete, Modular over Z/p, Binary etc.)
-* Walsh-Hadamard transform
-* Z-transform
-* Multi-dimensional Fourier transform
-* Number theoretic transform
-* Convolution theorem (Cyclic, Acyclic and Linear Convolutions)
-* Fast multiplications in long arithmetics using convolution theorem
-* Fast exponentiation in long arithmetics
-
 ___
 
 ### Recommended order of topics' exploration
 Topics pretend to be independent from each other as much as possible. There is no matter which topic you start from with almost no exceptions.
 My recommendations:
-* To start (Convolution theorem)[https://github.com/mstrielnikov/Math#convolution-theorem-and-its-applications] after some [Limear algebra](https://github.com/mstrielnikov/Math#linear-algebra) basics
 * To start [Elliptical curves](https://github.com/mstrielnikov/Math#elliptical-curves) only after [Number theory](https://github.com/mstrielnikov/Math#number-theory) and [Abstract algebra](https://github.com/mstrielnikov/Math#abstract-algebra) (in any order). But I consider this topic is the most complicated to fully got it.
