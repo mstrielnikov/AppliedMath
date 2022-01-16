@@ -40,7 +40,7 @@ List of usable internet sources by topics.
 * [Wikipedia: Fast Walsh transform](https://en.wikipedia.org/wiki/Fast_Walsh–Hadamard_transform)
 * [GeeksForGeeks: Fast Fourier Tranform for Polynomial Multiplication](https://www.geeksforgeeks.org/iterative-fast-fourier-transformation-polynomial-multiplication/?ref=rp) - C++
 
-# Game & Probability theory, Statistics
+# Game & Probability theory
 * [Wikipedia: Kelly Criterion and optimal bet size](https://en.wikipedia.org/wiki/Kelly_criterion)
 
 # Other Resources
