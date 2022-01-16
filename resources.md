@@ -5,7 +5,7 @@ List of usable internet sources by topics.
 # Math analisis
 * [Lagrange interpolation (polynomials)](https://en.wikipedia.org/wiki/Lagrange_polynomial)
 * [Habr: integral solving tricks](https://habr.com/ru/post/314820/)
-* [Habr: Rieman hypotesis](https://habr.com/ru/post/452964/)
+* [Habr: Rieman hypotesis popular explanation](https://habr.com/ru/post/452964/)
 
 # Abstract algebra
 * [Group theory book](http://www.mechmat.univ.kiev.ua/wp-content/uploads/2018/03/group_l.pdf)
@@ -21,6 +21,9 @@ List of usable internet sources by topics.
 * [Prime numbers producing formulas](https://mathworld.wolfram.com/PrimeFormulas.html)
 * [Habr: Computing bit count](https://habr.com/ru/post/276957/)
 * [Wikipedia: Zech's logarithm](https://en.wikipedia.org/wiki/Zech%27s_logarithm)
+* [Medium: Numbers that tricks Fermat prime number test](https://medium.com/asecuritysite-when-bob-met-alice/whats-special-about-561-it-s-a-number-that-that-tricks-the-fermat-prime-number-test-ef7743da8fd3)
+* [Wikipedia: Atkin sieve](https://ru.wikipedia.org/wiki/Решето_Аткина)
+* [Wikipedia: General number field sieve](https://en.wikipedia.org/wiki/General_number_field_sieve)
 
 # Elliptical curves
 * [Elliptical curves exercieces](https://ium.mccme.ru/postscript/f11/zykin-Problems_5.pdf)
@@ -28,13 +31,17 @@ List of usable internet sources by topics.
 # Linear algebra
 * [Habr: Linear group encoding](https://habr.com/ru/post/453130/)
 * [Wikipedia: Vector (linear) space](https://en.wikipedia.org/wiki/Affine_space)
-
-# Convolution theorem and its applications
-* [Faster integer multiplication using FFT in 2-basis](https://ivv5hpp.uni-muenster.de/u/cl/WS2007-8/mult.pdf)
-* [Habr: Window functions](https://habr.com/ru/post/514170/)
+* [Brilliant: DFT](https://brilliant.org/wiki/discrete-fourier-transform/)
 * [MATHEMATICS OF THE DISCRETE FOURIER TRANSFORM](https://ccrma.stanford.edu/~jos/mdft/)
+* [Faster integer multiplication using FFT in 2-basis](https://ivv5hpp.uni-muenster.de/u/cl/WS2007-8/mult.pdf)
+* [Arxiv: Faster Multiplication for Long Binary Polynomials](https://arxiv.org/pdf/1708.09746.pdf)
 * [Habr: Create own window-functions](https://habr.com/ru/post/514170/)
+* [Medium: Fast Fourier Transform for Polynomial Multiplication](https://medium.com/@aiswaryamathur/understanding-fast-fourier-transform-from-scratch-to-solve-polynomial-multiplication-8018d511162f)
+* [Wikipedia: Fast Walsh transform](https://en.wikipedia.org/wiki/Fast_Walsh–Hadamard_transform)
+* [GeeksForGeeks: Fast Fourier Tranform for Polynomial Multiplication](https://www.geeksforgeeks.org/iterative-fast-fourier-transformation-polynomial-multiplication/?ref=rp) - C++
 
+# Game & Probability theory, Statistics
+* [Wikipedia: Kelly Criterion and optimal bet size](https://en.wikipedia.org/wiki/Kelly_criterion)
 
 # Other Resources
 * [VMath](http://vmath.ru/vf5/)
@@ -43,3 +50,4 @@ List of usable internet sources by topics.
 * [Montgomery reduction](https://rosettacode.org/wiki/Montgomery_reduction#C.2B.2B)
 * [Asecurity: Galua Field arifmetics implemented on Rust](https://asecuritysite.com/gf)
 * [Asecurity: Galua Field arifmetics and irreducible polynomials implemented on Rust](https://asecuritysite.com/gf/gf2)
+* [Fourier transform in GoLang](https://pkg.go.dev/github.com/mjibson/go-dsp/fft)
