@@ -31,13 +31,14 @@ Main topics listed below.
 * Linear basis
 * Inverse matrix
 * Matrix product
-* Vector (linear) space
+* Singular value decomposition
 * Eigenvalues
-* Jordan decomposition PDP^(-1)
 * LU-decomposition
-* Affine space
+* Jordan decomposition PDP^(-1)
 * Matrix Exponentiation
 * Matrix Factorial
+* Vector (linear) space
+* Affine space
 * Fourier transform (Complex, Real, Descrete, Modular over Z/p, Binary etc.)
 * Walsh-Hadamard transform
 * Z-transform
@@ -65,7 +66,7 @@ Main topics listed below.
 * Lattices
 * Category theory
 
-## Number theory:
+## Number theory & Elliptical curves:
 * Main arithmetic theorem
 * Euclidian algorithms and its applications
 * GCD & LCM
@@ -86,8 +87,6 @@ Main topics listed below.
 * Descrete logarithm
 * Prime numbers' search algoritms
 * Prime number factorisation algorithms (Quadratic sieve, General number sieve)
-
-## Elliptical curves:
 * Elliptical curves types
 * Edwards' curves
 * Khase theorem
