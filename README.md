@@ -100,10 +100,3 @@ Main topics listed below.
 * Elliptical curve twist
 * Elliptical curve order
 * Schoof algorithm
-
-___
-
-### Recommendations
-Topics pretend to be independent from each other as much as possible. There is no matter which topic you start from with almost no exceptions.
-My recommendations:
-* To start [Elliptical curves](https://github.com/mstrielnikov/Math#elliptical-curves) only after [Number theory](https://github.com/mstrielnikov/Math#number-theory) and [Abstract algebra](https://github.com/mstrielnikov/Math#abstract-algebra) (in any order). 
