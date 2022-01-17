@@ -24,7 +24,7 @@ Main topics listed below.
 * Lagrange polynomial
 * Fourier series 
 
-## Linear Algebra and Application:
+## Linear Algebra and Applications:
 * Matrices
 * Graph representation through matrix
 * Matrix diagoalisation
