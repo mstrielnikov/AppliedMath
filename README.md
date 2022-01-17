@@ -39,9 +39,8 @@ Main topics listed below.
 * Matrix Factorial
 * Vector (linear) space
 * Affine space
-* Fourier transform (Complex, Real, Descrete, Modular over Z/p, Binary etc.)
 * Walsh-Hadamard transform
-* Z-transform
+* Fourier transform (Complex, Real, Descrete, Modular over Z/p, Binary etc.)
 * Multi-dimensional Fourier transform
 * Number theoretic transform
 * Convolution theorem (Cyclic, Acyclic and Linear Convolutions)
