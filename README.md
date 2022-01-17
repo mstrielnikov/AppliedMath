@@ -15,6 +15,7 @@ Main topics listed below.
 # Index 
 
 ## Math analisis:
+* Cubic curves
 * Integration
 * Hamma function
 * Harmonic series
@@ -47,11 +48,15 @@ Main topics listed below.
 * Fast polynomial exponentiation in long arithmetics
 
 ## Abstract algebra:
-* Sets
-* Group theory (Abelian, Lee, Half-groups and group-like objects)
+* Groups
+* Group-like objects
+* Half-groups
+* Group theory (Abelian, Lee)
 * Group order and cofactor
 * Group twist
 * Group production
+* Factor groups
+* Module group
 * Finite fields
 * Field generator
 * Galua fields
@@ -65,6 +70,7 @@ Main topics listed below.
 * Euclidian algorithms and its applications
 * GCD & LCM
 * Diophan equations
+* Continuous fractions
 * Modular math
 * Phermat theorem
 * Euler function
@@ -82,14 +88,13 @@ Main topics listed below.
 * Prime number factorisation algorithms (Quadratic sieve, General number sieve)
 
 ## Elliptical curves:
-* Cubic curves
 * Elliptical curves types
 * Edwards' curves
 * Khase theorem
 * Eliptical curve characteristics
 * Modular elliptical curves
-* Eliptical curve finite fields E/p
-* Fast algorithms (addition) in Eliptical Curve field E/p 
+* Eliptical curve finite field E/p
+* Fast algorithms in Eliptical Curve field E/p 
 * Eliptical curve in Projective coordinates
 * Elliptical curves in Affine coordinates
 * Elliptical curve isogeny
