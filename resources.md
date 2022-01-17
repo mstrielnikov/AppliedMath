@@ -39,6 +39,8 @@ List of usable internet sources by topics.
 * [Medium: Fast Fourier Transform for Polynomial Multiplication](https://medium.com/@aiswaryamathur/understanding-fast-fourier-transform-from-scratch-to-solve-polynomial-multiplication-8018d511162f)
 * [Wikipedia: Fast Walsh transform](https://en.wikipedia.org/wiki/Fast_Walsh–Hadamard_transform)
 * [GeeksForGeeks: Fast Fourier Tranform for Polynomial Multiplication](https://www.geeksforgeeks.org/iterative-fast-fourier-transformation-polynomial-multiplication/?ref=rp) - C++
+* [Fourier-like transforms](http://atimopheyev.narod.ru/Numbers_Theory/Netscape/Compute_Integer/Fermat_Transform/DT-Fourier.HTM)
+* [Linear and cyclic convolution](https://ru.dsplib.org/content/conv/conv.html)
 
 # Game & Probability theory
 * [Wikipedia: Kelly Criterion and optimal bet size](https://en.wikipedia.org/wiki/Kelly_criterion)
