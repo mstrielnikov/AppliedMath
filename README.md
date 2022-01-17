@@ -102,4 +102,4 @@ ___
 ### Recommended order of topics' exploration
 Topics pretend to be independent from each other as much as possible. There is no matter which topic you start from with almost no exceptions.
 My recommendations:
-* To start [Elliptical curves](https://github.com/mstrielnikov/Math#elliptical-curves) only after [Number theory](https://github.com/mstrielnikov/Math#number-theory) and [Abstract algebra](https://github.com/mstrielnikov/Math#abstract-algebra) (in any order). But I consider this topic is the most complicated to fully got it.
+* To start [Elliptical curves](https://github.com/mstrielnikov/Math#elliptical-curves) only after [Number theory](https://github.com/mstrielnikov/Math#number-theory) and [Abstract algebra](https://github.com/mstrielnikov/Math#abstract-algebra) (in any order). 
