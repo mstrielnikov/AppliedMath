@@ -38,7 +38,6 @@ List of usable internet sources by topics.
 * [Habr: Create own window-functions](https://habr.com/ru/post/514170/)
 * [Medium: Fast Fourier Transform for Polynomial Multiplication](https://medium.com/@aiswaryamathur/understanding-fast-fourier-transform-from-scratch-to-solve-polynomial-multiplication-8018d511162f)
 * [Wikipedia: Fast Walsh transform](https://en.wikipedia.org/wiki/Fast_Walsh–Hadamard_transform)
-* [GeeksForGeeks: Fast Fourier Tranform for Polynomial Multiplication](https://www.geeksforgeeks.org/iterative-fast-fourier-transformation-polynomial-multiplication/?ref=rp) - C++
 * [Fourier-like transforms](http://atimopheyev.narod.ru/Numbers_Theory/Netscape/Compute_Integer/Fermat_Transform/DT-Fourier.HTM)
 * [Linear and cyclic convolution](https://ru.dsplib.org/content/conv/conv.html)
 
@@ -49,7 +48,9 @@ List of usable internet sources by topics.
 * [VMath](http://vmath.ru/vf5/)
 
 # Code & PoC
-* [Montgomery reduction](https://rosettacode.org/wiki/Montgomery_reduction#C.2B.2B)
-* [Asecurity: Galua Field arifmetics implemented on Rust](https://asecuritysite.com/gf)
-* [Asecurity: Galua Field arifmetics and irreducible polynomials implemented on Rust](https://asecuritysite.com/gf/gf2)
-* [Fourier transform in GoLang](https://pkg.go.dev/github.com/mjibson/go-dsp/fft)
+* [Montgomery reduction](https://rosettacode.org/wiki/Montgomery_reduction#C.2B.2B) - C++
+* [Asecurity: Galua Field arifmetics implemented](https://asecuritysite.com/gf) - Rust
+* [Asecurity: Galua Field arifmetics and irreducible polynomials](https://asecuritysite.com/gf/gf2) - Rust
+* [Fourier transform lib](https://pkg.go.dev/github.com/mjibson/go-dsp/fft) - GoLang
+* [GeeksForGeeks: Fast Fourier Tranform for Polynomial Multiplication](https://www.geeksforgeeks.org/iterative-fast-fourier-transformation-polynomial-multiplication/?ref=rp) - C++
+
