@@ -79,7 +79,7 @@ Main topics listed below.
 * Chienese reminder theorem
 * Lezhandre symbol
 * Hilbert Symbol
-* Prime numbers (Fermat Primes, Mersenne, Sofi-Germen, Chairlmikele)
+* Prime numbers (Fermat Primes, Mersenne, Sofi-Jermen, Chairlmikele)
 * Prime numbers' tests (Fermat)
 * Modular comparisons
 * Index
