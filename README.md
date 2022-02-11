@@ -88,6 +88,7 @@ Main topics listed below.
 * Prime numbers' search algoritms
 * Prime number factorisation algorithms (Quadratic sieve, General number sieve)
 * Elliptical curves types
+* Cyclotomic polynomials
 * Edwards' curves
 * Khase theorem
 * Eliptical curve characteristics
