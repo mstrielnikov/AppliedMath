@@ -1,6 +1,6 @@
 from sys import argv
 
-def WalshHadamard(vector) -> None:
+def WalshHadamard(vector) -> list:
     vectorLen = len(vector)
     transform = []
     h = 1
@@ -14,6 +14,6 @@ def WalshHadamard(vector) -> None:
         h *= 2
     return transform
   
-if __name__ == "__main__" :
+if __name__ == "__main__":
     print(WalshHadamard(sys.argv[1]))
   
