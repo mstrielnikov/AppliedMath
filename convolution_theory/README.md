@@ -1,6 +1,6 @@
-# Linear Algebra
+# Convolution theory
 
-* Fourir series
+* Fourier series
 * Fourier transform
 * Duamel's Integral
 * Convolution theorem
