@@ -17,35 +17,15 @@ Main topics listed below.
 ## Math analisis:
 * Cubic curves
 * Integration
-* Hamma function
-* Harmonic series
-* Rieman series (Zeta-function)
-* Taylor series
-* Lagrange polynomial
-* Fourier series 
+* Series
+* Interpolation
 
 ## Linear Algebra and Applications:
 * Matrices
-* Graph representation through matrix
-* Matrix diagoalisation
 * Linear basis
-* Inverse matrix
-* Matrix product
-* Singular value decomposition
-* Eigenvalues
-* LU-decomposition
-* Jordan decomposition PDP^(-1)
-* Matrix Exponentiation
-* Matrix Factorial
 * Vector (linear) space
 * Affine space
-* Walsh-Hadamard transform
-* Fourier transform (Complex, Real, Descrete, Modular over Z/p, Binary etc.)
-* Multi-dimensional Fourier transform
-* Number theoretic transform
-* Convolution theorem (Cyclic, Acyclic and Linear Convolutions)
-* Fast polynomial multiplication in long arithmetics convolution theorem
-* Fast polynomial exponentiation in long arithmetics
+* Operators theory
 
 ## Abstract algebra:
 * Groups theory (Groups, Group-like objects, Half-groups)
@@ -54,39 +34,10 @@ Main topics listed below.
 * Category theory
 
 ## Number theory & Elliptical curves:
-* Main arithmetic theorem
+* Numeric algorithms
+* Prime numbers (search, factorization, testing)
 * Euclidian algorithms and its applications
-* GCD & LCM
 * Diophan equations
-* Continuous fractions
 * Modular math
-* Phermat theorem
-* Euler function
-* Montgomery reduction
-* Mobius function
-* Chienese reminder theorem
-* Lezhandre symbol
-* Hilbert Symbol
-* Prime numbers (Fermat Primes, Mersenne, Sofi-Jermen, Chairlmikele)
-* Prime numbers' tests (Fermat)
-* Modular comparisons
-* Index
-* Zech logarithm
-* Descrete logarithm
-* Polymomial rins over prime number field
-* Cyclotomic polynomials
-* Prime numbers' search algoritms
-* Prime number factorisation algorithms (Quadratic sieve, General number sieve)
-* Elliptical curves types
-* Edwards' curves
-* Khase theorem
-* Eliptical curve characteristics
-* Modular elliptical curves
-* Eliptical curve finite field E/p
-* Fast algorithms in Eliptical Curve field E/p 
-* Eliptical curve in Projective coordinates
-* Elliptical curves in Affine coordinates
-* Elliptical curve isogeny
-* Elliptical curve twist
-* Elliptical curve order
-* Schoof algorithm
+* Descrete logarithm (Index)
+* Connections to Group theory and Elliptical curves
