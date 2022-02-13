@@ -27,6 +27,7 @@ List of usable internet sources by topics.
 
 # Elliptical curves
 * [Elliptical curves exercieces](https://ium.mccme.ru/postscript/f11/zykin-Problems_5.pdf)
+* [Edward's curves](https://core.ac.uk/download/pdf/146445895.pdf)
 
 # Linear algebra
 * [Habr: Linear group encoding](https://habr.com/ru/post/453130/)
