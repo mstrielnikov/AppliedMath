@@ -24,6 +24,7 @@ List of usable internet sources by topics.
 * [Medium: Numbers that tricks Fermat prime number test](https://medium.com/asecuritysite-when-bob-met-alice/whats-special-about-561-it-s-a-number-that-that-tricks-the-fermat-prime-number-test-ef7743da8fd3)
 * [Wikipedia: Atkin sieve](https://ru.wikipedia.org/wiki/Решето_Аткина)
 * [Wikipedia: General number field sieve](https://en.wikipedia.org/wiki/General_number_field_sieve)
+* [Asecurity: Crack RSA with Chienese Reminder theorem](https://asecuritysite.com/cracking/rsa_crt) - Python
 
 # Elliptical curves
 * [Elliptical curves exercieces](https://ium.mccme.ru/postscript/f11/zykin-Problems_5.pdf)
