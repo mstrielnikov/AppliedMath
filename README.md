@@ -48,20 +48,8 @@ Main topics listed below.
 * Fast polynomial exponentiation in long arithmetics
 
 ## Abstract algebra:
-* Groups
-* Group-like objects
-* Half-groups
-* Group theory (Abelian, Lee)
-* Group order and cofactor
-* Group twist
-* Group production
-* Factor groups
-* Module group
-* Finite fields
-* Field generator
-* Galua fields
-* Rings
-* Unity root
+* Groups theory (Groups, Group-like objects, Half-groups)
+* Fields (Finite, Infinite, Galua fields)
 * Lattices
 * Category theory
 
