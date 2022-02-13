@@ -60,7 +60,7 @@ Main topics listed below.
 * Finite fields
 * Field generator
 * Galua fields
-* Rings theory (Modular rings, Polynomial, Elliptical)
+* Rings
 * Unity root
 * Lattices
 * Category theory
@@ -85,10 +85,11 @@ Main topics listed below.
 * Index
 * Zech logarithm
 * Descrete logarithm
+* Polymomial rins over prime number field
+* Cyclotomic polynomials
 * Prime numbers' search algoritms
 * Prime number factorisation algorithms (Quadratic sieve, General number sieve)
 * Elliptical curves types
-* Cyclotomic polynomials
 * Edwards' curves
 * Khase theorem
 * Eliptical curve characteristics
