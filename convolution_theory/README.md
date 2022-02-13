@@ -1,12 +1,25 @@
 # Linear Algebra
 
-* Fourier series
-* Fourier transform (Complex, Real, Descrete, Modular over Z/p, Binary etc.)
-* Convolution theorem (Cyclic, Acyclic and Linear Convolutions)
+* Fourir series
+* Fourier transform
+* Duamel's Integral
+* Convolution theorem
+* Convolution operator & Vandermonde matrix
+* Convolutions convolutions for particular fields: 
+    * Complex
+    * Real
+    * Descrete
+    * Modular over Z/p
+    * Binary
+    * Polynomial 
+    * etc.
+* Constructing Fourier-like transforms:
+    * Walsh-Hadamard
+    * Number Theoretic Transform (NTT)
+* Polynomial multiplication
+* Convolution algoritm optimization
 * Multi-dimensional Fourier transform
-* Number theoretic transform
-* Walsh-Hadamard transform
-* Fast polynomial multiplication in long arithmetics convolution theorem
+* Fourier transform for matrices
 
 # Resources
 

@@ -20,12 +20,19 @@ Main topics listed below.
 * Series
 * Interpolation
 
-## Linear Algebra and Applications:
+## Linear Algebra
 * Matrices
 * Linear basis
 * Vector (linear) space
 * Affine space
 * Operators theory
+
+## Convolution theory
+* Fourier & Fourier-like transforms
+* Convolution theory
+* Convolution operator
+* Polynomial Multiplication
+* Convolution algoritm optimization
 
 ## Abstract algebra:
 * Groups theory (Groups, Group-like objects, Half-groups)
@@ -33,7 +40,7 @@ Main topics listed below.
 * Lattices
 * Category theory
 
-## Number theory & Elliptical curves:
+## Number theory
 * Numeric algorithms
 * Prime numbers (search, factorization, testing)
 * Euclidian algorithms and its applications
