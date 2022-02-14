@@ -12,6 +12,7 @@
 * Mobius function
 * Chienese reminder theorem
 * Lezhandre symbol
+* Jacobi symbol
 * Hilbert Symbol
 * Prime numbers (Fermat Primes, Mersenne, Sofi-Jermen, Chairlmikele)
 * Prime numbers' tests (Fermat)
