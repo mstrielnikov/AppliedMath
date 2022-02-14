@@ -1,30 +1,39 @@
 ## Number theory
 
 * Main arithmetic theorem
-* Euclidian algorithms and its applications
 * GCD & LCM
+* Euclidian algorithms
 * Diophan equations
 * Continuous fractions
-* Modular math
-* Phermat theorem
-* Euler function
+* Modular math *Z/(p^n)*
+    * Euler function
+    * Phermat theorem
 * Montgomery reduction
 * Mobius function
 * Chienese reminder theorem
-* Lezhandre symbol
-* Jacobi symbol
-* Hilbert Symbol
-* Prime numbers (Fermat Primes, Mersenne, Sofi-Jermen, Chairlmikele)
-* Prime numbers' tests (Fermat)
+* Computing residues:
+    * Lezhandre symbol
+    * Jacobi symbol
+    * Hilbert Symbol
 * Modular comparisons
-* Index
-* Zech logarithm
-* Descrete logarithm
-* Polymomial rings over prime number field
-* Cyclotomic polynomials
-* Prime numbers' search algoritms
-* Prime number factorisation algorithms (Quadratic sieve, General number sieve)
-* Randon numbers generation
+    * 1st order
+    * 2nd order
+* Prime numbers' tests:
+    * Fermat
+* Prime numbers:    
+    * Fermat Primes
+    * Mersenne
+    * Sofi-Jermen
+    * Chairlmikele
+* Prime number factorisation:
+    * Index
+    * Zech logarithm
+    * Descrete logarithm
+* Prime numbers' search algoritms:
+    * Atkin's sieve
+    * Quadratic sieve
+    * General number sieve
+* Randon numbers sequences generation
 
 ___
 
