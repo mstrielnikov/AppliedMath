@@ -1,24 +1,26 @@
 # Abstract algebra
 
-* Groups
-* Group-like objects
-* Half-groups
-* Group theory (Abelian, Lee)
-* Group order and cofactor
-* Group extension
-* Group twist
-* Group production
-* Factor groups
-* Module group
-* Finite fields
-* Field generator
-* Galua fields
-* Rings
-* Unity root
-* Cyclotomic polynomials
+* Groups:
+    * Group-like objects
+    * Half-groups
+    * Group theory (Abelian, Lee)
+    * Group order and cofactor
+    * Group extension
+    * Group twist
+    * Group production
+    * Module group
+    * Factor groups
+* Finite fields:
+    * Field generator
+    * Galua fields
+* Rings:
+    * Unity root
+* Polynomial rings:
+    * Irreducible polynomials
+    * Polynomial GCD
+    * Polynomials over prime number field
+    * Cyclotomic polynomials
 * Descrete logarithm
-* Irreducible polynomials
-* Polynomials over prime number field
 
 # Resources
 * [Group theory book](http://www.mechmat.univ.kiev.ua/wp-content/uploads/2018/03/group_l.pdf)
