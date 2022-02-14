@@ -1,16 +1,19 @@
 # Elliptical curves 
 
-* Elliptical curves types (Montgomery, Koblitz, Edward's, Khase)
+* Elliptical curves types:
+    * Montgomery curve 
+    * Koblitz curves 
+    * Edward's 
+    * Khase
+* Modular elliptical curves *E/p*
 * Khase theorem
 * Eliptical curve characteristics
-* Modular elliptical curves
-* Eliptical curve finite field E/p
-* Fast algorithms in Eliptical Curve field E/p 
-* Eliptical curve in Projective coordinates
-* Elliptical curves in Affine coordinates
+* Elliptical curve order
+* Fast algorithms in Eliptical Curve field E/p: 
+    * Eliptical curve in Projective coordinates
+    * Elliptical curves in Affine coordinates
 * Elliptical curve isogeny
 * Elliptical curve twist
-* Elliptical curve order
 * Schoof algorithm
 
 ___
