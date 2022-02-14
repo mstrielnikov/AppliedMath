@@ -13,7 +13,14 @@
 * Elliptical curve order
 * Schoof algorithm
 
+___
+
 # Resources
 
+*Links:*
+
+*Whitepapers:*
+
+*Books:*
 * [Elliptical curves exercieces](https://ium.mccme.ru/postscript/f11/zykin-Problems_5.pdf)
 * [Edward's curves](https://core.ac.uk/download/pdf/146445895.pdf)

@@ -26,7 +26,11 @@
 * Prime number factorisation algorithms (Quadratic sieve, General number sieve)
 * Randon numbers generation
 
+___
+
 # Resources
+
+*Links:*
 
 * [Habr: Rieman hypotesis popular explanation](https://habr.com/ru/post/452964/)
 * [Habr: Numbers and relation with data structures](https://habr.com/ru/post/561556/)
@@ -38,3 +42,8 @@
 * [Wikipedia: Atkin sieve](https://ru.wikipedia.org/wiki/Решето_Аткина)
 * [Wikipedia: General number field sieve](https://en.wikipedia.org/wiki/General_number_field_sieve)
 * [Asecurity: Crack RSA with Chienese Reminder theorem](https://asecuritysite.com/cracking/rsa_crt) - Python
+
+
+*Whitepapers:*
+
+*Books:*

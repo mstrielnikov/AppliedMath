@@ -4,8 +4,8 @@ ___
 
 # Resources
 
-*Links*
+*Links:*
 
-*Whitepapers*
+*Whitepapers:*
 
-*Books*
+*Books:*

@@ -15,7 +15,15 @@
 * Vector (linear) space
 * Affine space
 
+___
+
 # Resources
 
+*Links:*
 * [Habr: Linear group encoding](https://habr.com/ru/post/453130/)
 * [Wikipedia: Vector (linear) space](https://en.wikipedia.org/wiki/Affine_space)
+
+*Whitepapers:*
+
+*Books:*
+

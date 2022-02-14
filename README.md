@@ -8,8 +8,6 @@ These theoretical basis covers Computer Science areas such as:
 * Fast computer arithmetics algorithms
 * Fuzzy logic and AI related math
 
-Check up [sources](https://github.com/mstrielnikov/Math/blob/main/resources.md#resources) for inspiration.
-
 Main topics listed below.
 
 # Index 
