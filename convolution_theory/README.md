@@ -5,13 +5,13 @@
 * Duamel's Integral
 * Convolution theorem
 * Convolution operator & Vandermonde matrix
-* Convolutions convolutions for particular fields: 
-    * Complex
-    * Real
-    * Descrete
-    * Modular over Z/p
-    * Binary
-    * Polynomial 
+* Convolutions in particular fields: 
+    * Complex *_C_*
+    * Real *_R_*
+    * Descrete 
+    * Modular over *_Z/p_*
+    * Binary *_Z/(2^n)_*
+    * Polynomial *_Z[x]_*
     * etc.
 * Constructing Fourier-like transforms:
     * Walsh-Hadamard
