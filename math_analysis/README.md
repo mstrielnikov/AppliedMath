@@ -4,7 +4,6 @@
 * Integration
 * Hamma function
 * Harmonic series
-* Rieman series (Zeta-function)
 * Taylor series
 * Lagrange polynomial
 
