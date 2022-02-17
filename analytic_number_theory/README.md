@@ -9,8 +9,9 @@ ___
 # Resources
 
 *Links:*
-* [Lagrange interpolation (polynomials)](https://en.wikipedia.org/wiki/Lagrange_polynomial)
-* [Habr: integral solving tricks](https://habr.com/ru/post/314820/)
+* [Habr: Rieman hypotesis popular explanation](https://habr.com/ru/post/452964/)
+* [Habr: Computing bit count](https://habr.com/ru/post/276957/)
+* [Habr: Numbers and relation with data structures](https://habr.com/ru/post/561556/)
 
 *Whitepapers:*
 
