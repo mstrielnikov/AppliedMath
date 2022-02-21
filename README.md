@@ -15,6 +15,7 @@ Main topics listed below.
 ## Linear Algebra
 * Matrices
 * Linear basis
+* Eigenvalues
 * Vector (linear) space
 * Affine space
 * Operators theory
@@ -28,15 +29,13 @@ Main topics listed below.
 ## Convolution theory
 * Fourier & Fourier-like transforms
 * Convolution theory
-* Convolution operator
-* Polynomial Multiplication
-* Convolution algoritm optimization
+* Effective polynomial multiplication
+* Optimization and application for large arithmetics
 
 ## Analytic Number theory
 * Number sequences 
-* Number representation with series
-* Numeric method optimisation
-* Progressions
+* Number representations
+* Numeric methods optimisation
 
 ## Desrete Number theory
 * Numeric algorithms
@@ -45,11 +44,13 @@ Main topics listed below.
 * Diophan equations
 * Modular math
 * Descrete logarithm (Index)
-* Connections to Group theory and Elliptical curves
+* Basis for Group theory and Elliptical curves
 
 ## Abstract algebra:
-* Groups theory (Groups, Group-like objects, Half-groups)
-* Fields (Finite, Infinite, Galua fields)
+* Groups theory (groups, group like objects, semigroups)
+* Fields (finite, infinite)
+* Galua field
+* Rings
 * Lattices
 * Category theory
 
@@ -57,6 +58,5 @@ Main topics listed below.
 * Elliptical curves types
 * Modular elliptical curves
 * Khase theorem
-* Eliptical Curve algorithms and it's optimisation
-* Eliptical Curve connections to number and group theory
+* Eliptical curve algorithms and it's optimisation
 * Schoof algorithm
