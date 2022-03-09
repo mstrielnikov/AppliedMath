@@ -40,12 +40,7 @@ ___
 # Resources
 
 *Links:*
-
-* [Habr: Rieman hypotesis popular explanation](https://habr.com/ru/post/452964/)
-* [Habr: Numbers and relation with data structures](https://habr.com/ru/post/561556/)
 * [Habr: Prime numbers' patterns](https://habr.com/ru/post/533066/)
-* [Prime numbers producing formulas](https://mathworld.wolfram.com/PrimeFormulas.html)
-* [Habr: Computing bit count](https://habr.com/ru/post/276957/)
 * [Wikipedia: Zech's logarithm](https://en.wikipedia.org/wiki/Zech%27s_logarithm)
 * [Medium: Numbers that tricks Fermat prime number test](https://medium.com/asecuritysite-when-bob-met-alice/whats-special-about-561-it-s-a-number-that-that-tricks-the-fermat-prime-number-test-ef7743da8fd3)
 * [Wikipedia: Atkin sieve](https://ru.wikipedia.org/wiki/Решето_Аткина)
