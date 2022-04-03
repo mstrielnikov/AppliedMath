@@ -5,6 +5,7 @@
 * Zhegalkin polymials
 * Karnaugh map
 * Conjuctive and Disjunctive forms
+* Set theory
 
 ___
 
