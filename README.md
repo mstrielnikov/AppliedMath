@@ -44,7 +44,6 @@ Main topics listed below.
 * Diophan equations
 * Modular math
 * Descrete logarithm (Index)
-* Basis for Group theory and Elliptical curves
 
 ## Abstract algebra:
 * Groups theory (groups, group like objects, semigroups)
