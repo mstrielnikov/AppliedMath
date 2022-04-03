@@ -12,6 +12,17 @@ Main topics listed below.
 
 # Index 
 
+## Math analisis:
+* Cubic curves
+* Integration
+* Series
+* Interpolation
+
+## Analytic Number theory
+* Number sequences 
+* Number representations
+* Numeric methods optimisation
+
 ## Linear Algebra
 * Matrices
 * Linear basis
@@ -20,22 +31,11 @@ Main topics listed below.
 * Affine space
 * Operators theory
 
-## Math analisis:
-* Cubic curves
-* Integration
-* Series
-* Interpolation
-
 ## Convolution theory
 * Fourier & Fourier-like transforms
 * Convolution theory
 * Effective polynomial multiplication
 * Optimization and application for large arithmetics
-
-## Analytic Number theory
-* Number sequences 
-* Number representations
-* Numeric methods optimisation
 
 ## Desrete Number theory
 * Numeric algorithms
