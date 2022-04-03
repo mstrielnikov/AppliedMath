@@ -5,6 +5,7 @@
 * Hamma function
 * Harmonic series
 * Taylor series
+* Laurent series
 * Lagrange polynomial
 
 ___
