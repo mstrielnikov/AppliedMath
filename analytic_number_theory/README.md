@@ -3,9 +3,9 @@
 * Number systems and number representation
 * Suqares and powers computation
 * Golden ratio computation
+* Continuous fractions
 * Haussian numbers
 * Rieman series (Zeta-function)
-
 ___
 
 # Resources
