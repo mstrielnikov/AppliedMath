@@ -7,8 +7,12 @@
 * Modular math *Z/(p^n)*
     * Euler function
     * Phermat theorem
+* Prime numbers & theorems:    
+    * Fermat Primes
+    * Mersenne
+    * Sofi-Jermen
+    * Chairlmikele
 * Montgomery reduction
-* Mobius function
 * Chienese reminder theorem
 * Computing residues:
     * Lezhandre symbol
@@ -19,15 +23,12 @@
     * 2nd order
 * Prime numbers' tests:
     * Fermat
-* Prime numbers:    
-    * Fermat Primes
-    * Mersenne
-    * Sofi-Jermen
-    * Chairlmikele
 * Prime number factorisation:
     * Index
     * Zech logarithm
     * Descrete logarithm
+* Mobius function
+* Mobius convolution
 * Prime numbers' search algoritms:
     * Atkin's sieve
     * Quadratic sieve
