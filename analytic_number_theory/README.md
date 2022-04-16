@@ -1,8 +1,9 @@
 # Math analysis
 
 * Number systems and number representation
-* Golden ratio computation
 * Suqares and powers computation
+* Golden ratio computation
+* Haussian numbers
 * Rieman series (Zeta-function)
 
 ___
