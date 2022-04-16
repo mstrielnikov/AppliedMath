@@ -4,7 +4,6 @@
 * GCD & LCM
 * Euclidian algorithms
 * Diophan equations
-* Continuous fractions
 * Modular math *Z/(p^n)*
     * Euler function
     * Phermat theorem
