@@ -1,7 +1,7 @@
 # Math analysis
 
 * Number systems and number representation
-* Suqares and powers computation
+* Squares and powers computation
 * Golden ratio computation
 * Continuous fractions
 * Haussian numbers
