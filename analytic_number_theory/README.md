@@ -11,6 +11,7 @@ ___
 # Resources
 
 *Links:*
+* [Wikipedia: Squaring number](https://en.wikipedia.org/wiki/Square_number)
 * [Wolfram: Prime numbers producing formulas](https://mathworld.wolfram.com/PrimeFormulas.html)
 * [Habr: Rieman hypotesis popular explanation](https://habr.com/ru/post/452964/)
 * [Habr: Computing bit count](https://habr.com/ru/post/276957/)
