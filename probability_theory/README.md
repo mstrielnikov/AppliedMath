@@ -1,20 +1,21 @@
-# Probability theory
+# Information theory
 
-* Probability descrete
+* Descrete value probability
 * Dispersion
-* Bayes theorem
+* Continious value probability
 * Error function
-* Kelly criterion
-
-
+* Entropy
+* Randomness test
+* Encodings
 
 ___
 
 # Resources
 
 *Links:*
-* [Wikipedia: Kelly Criterion and optimal bet size](https://en.wikipedia.org/wiki/Kelly_criterion)
+* [Habr: Linear group encoding](https://habr.com/ru/post/453130/)
 
 *Whitepapers:*
 
 *Books:*
+

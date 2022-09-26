@@ -4,9 +4,14 @@
 * Integration
 * Hamma function
 * Harmonic series
+* Rieman Zeta-function
+Interpolation:
+* Lagrange polynomial
 * Taylor series
 * Laurent series
-* Lagrange polynomial
+
+
+*Books:*
 
 ___
 

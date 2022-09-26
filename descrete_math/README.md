@@ -1,11 +1,12 @@
-# Math analysis
+# Descrete Math
 
+* Set theory
 * Boolean algebra
 * De Morgan rule
-* Zhegalkin polymials
+* Zhegalkin polynomials
 * Karnaugh map
 * Conjuctive and Disjunctive forms
-* Set theory
+* Bayes theorem
 
 ___
 

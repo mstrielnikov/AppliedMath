@@ -1,23 +1,22 @@
-# Convolution theory
+# Harmonic analysis 
 
 * Fourier series
 * Fourier transform
 * Duamel's Integral
 * Convolution theorem
-* Convolution operator & Vandermonde matrix
-* Convolutions in particular fields: 
+* Convolution operator
+* Vandermonde matrix
+* Convolutions in fields: 
     * Complex *_C_*
     * Real *_R_*
-    * Descrete 
     * Modular over *_Z/p_*
     * Binary *_Z/(2^n)_*
+    * Mobius convolution
     * Polynomial *_Z[x]_*
-    * etc.
 * Constructing Fourier-like transforms:
     * Walsh-Hadamard
     * Number Theoretic Transform (NTT)
 * Polynomial multiplication
-* Convolution algoritm optimization
 * Multi-dimensional Fourier transform
 * Fourier transform for matrices
 
@@ -37,5 +36,3 @@ ___
 *Whitepapers:*
 * [Faster integer multiplication using FFT in 2-basis](https://ivv5hpp.uni-muenster.de/u/cl/WS2007-8/mult.pdf)
 * [Arxiv: Faster Multiplication for Long Binary Polynomials](https://arxiv.org/pdf/1708.09746.pdf)
-
-*Books:*
