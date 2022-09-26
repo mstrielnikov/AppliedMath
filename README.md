@@ -15,47 +15,46 @@ Main topics listed below.
 ## Math analisis:
 * Cubic curves
 * Integration
+* Derivatives
 * Series
 * Interpolation
-
-## Analytic Number theory
-* Number sequences 
-* Number representations
-* Numeric methods optimisation
+* Fourier transforms
+* Convolution theorys
 
 ## Linear Algebra
 * Matrices
 * Linear basis
 * Eigenvalues
-* Vector (linear) space
-* Affine space
+* Vector space
 * Operators theory
 
-## Convolution theory
-* Fourier & Fourier-like transforms
-* Convolution theory
-* Effective polynomial multiplication
-* Optimization and application for large arithmetics
+## Abstract algebra:
+* Group theory
+* Field theory
+* Halois theory
+* Ring theory
+* Lattice 
+* Category
 
-## Desrete Number theory
+## Modular forms
+
+## Number theory
+* Number sequences 
+* Number representations
+* Numeric methods optimisation
 * Numeric algorithms
 * Prime numbers (search, factorization, testing)
-* Euclidian algorithms and its applications
-* Diophan equations
-* Modular math
-* Descrete logarithm (Index)
+* Descrete logarithm
+* Multiplicative functions
+* Large arithmetics 
+* Elliptical curves
 
-## Abstract algebra:
-* Groups theory (groups, group like objects, semigroups)
-* Fields (finite, infinite)
-* Galua field
-* Rings
-* Lattices
-* Category theory
+## Descrete math
+* Set theory
+* Graph theory
+* Boolean algebra
 
-## Elliptical curves 
-* Elliptical curves types
-* Modular elliptical curves
-* Khase theorem
-* Eliptical curve algorithms and it's optimisation
-* Schoof algorithm
+## Probability theory
+
+## Game theory
+
