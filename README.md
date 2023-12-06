@@ -1,12 +1,8 @@
 # Math
 
-Some essential math topics devoted pure math theory and applicational ones.
+Mathematical basics and advanced staff for Cryptography.
+Closely related with ([cryptography research](https://github.com/mstrielnikov/Cryptography#cryptography))
 
-These theoretical basis covers Computer Science areas such as:
-* Cryptography (in a very close [look](https://github.com/mstrielnikov/Cryptography#cryptography))
-* Information encoding & image processing
-* Fast computer arithmetics algorithms
-* Fuzzy logic and AI related math
 
 Main topics listed below.
 
@@ -19,7 +15,7 @@ Main topics listed below.
 * Series
 * Interpolation
 * Fourier transforms
-* Convolution theorys
+* Convolution theories
 
 ## Linear Algebra
 * Matrices
@@ -31,7 +27,7 @@ Main topics listed below.
 ## Abstract algebra:
 * Group theory
 * Field theory
-* Halois theory
+* Galois theory
 * Ring theory
 * Lattice 
 * Category
@@ -54,7 +50,7 @@ Main topics listed below.
 * Graph theory
 * Boolean algebra
 
-## Probability theory
+## Probability theory & statistics
 
 ## Game theory
 
