@@ -1,3 +1,4 @@
+# Overview and classification
 # Definition
 
 _Lattices studied in abstract algebra and set theory (order theory) both_.
@@ -13,14 +14,14 @@ Equivalently, [[poset]] $L$ is a lattice only if $L$ is a upper and lower sub-la
 
 Since, $L$ is [[poset]], then lattice $L$ could be represented as a Hasse diagram. 
 ## B. Lattice as an algebraic structure
-Lattice $L$ defined  as [[abstract_algebra/0-algebra/algebra|algebra]] with two binary [[descrete_math/0-set_theory/operation|operations]] $\langle L, \vee, \land \rangle$ (or $\langle L, +, \cdot \rangle$). These operations follows the next properties: 
+Lattice $L$ defined  as [[algebraic system|algebraic system]] with two binary [[descrete_math/0-set_theory/operation|operations]] $\langle L, \vee, \land \rangle$ (or $\langle L, +, \cdot \rangle$). These operations follows the next properties: 
 
 1) idempotent laws: $a \vee a = a$, $a \wedge a = a$
 2) absorption laws:  $a \vee (a \wedge b) = a$, $a \wedge (a \vee b) = a$
 3) associativity: $a \vee (b \vee c) = (a \vee b) \vee c$, $a \wedge (b \wedge c) = (a \wedge b) \wedge c$
 4) commutativity: $a \vee b = b ∨ a$, $a ∧ b = b ∧ a$
 
-Each sub-lattice $\langle L, \vee \rangle$ and $\langle L, \land \rangle$ are behave as two commutative [[monoid|monoids]] over the same domain set.
+Each sub-lattice $\langle L, \vee \rangle$ and $\langle L, \land \rangle$ are behave as two commutative [[Monoid|monoids]] over the same domain set.
 ## C. Lattice duality (connection between definitions A and B)
 An order-theoretic lattice $L_{\leq}$ gives rise to the two binary operations $\vee$ and $\wedge$. Since the commutative, associative and absorption laws can easily be verified for these operations, they turns into a lattice $\langle L, \vee, \land \rangle$ in the algebraic sense.
 
@@ -76,7 +77,7 @@ Analogously for upper bound in $\mathbb{N}$ (or $\mathbb{N}_{0})$. Then lower bo
 # Examples
 
 ## 1. Finite total order
- Any total [[order]]. Ex.:  subset of _n_ natural numbers  $\mathbb{N}_\leq$ order or in terms of algebraic structure$\langle \mathbb{N}_{n}, \leq, \ge \rangle$. That case is isomorphic to $\langle \mathbb{N}_{n}, min, max \rangle$, where $\langle \mathbb{N}_{n}, min \rangle$ and $\langle \mathbb{N}_{n}, max \rangle$ are corresponding sub-lattices and [[monoid|monoids]].
+ Any total [[order]]. Ex.:  subset of _n_ natural numbers  $\mathbb{N}_\leq$ order or in terms of algebraic structure$\langle \mathbb{N}_{n}, \leq, \ge \rangle$. That case is isomorphic to $\langle \mathbb{N}_{n}, min, max \rangle$, where $\langle \mathbb{N}_{n}, min \rangle$ and $\langle \mathbb{N}_{n}, max \rangle$ are corresponding sub-lattices and [[Monoid|monoids]].
 ## 2. Poset over divisibility relation
 [[poset|Poset]] over divisibility relation $\langle \mathbb{N}, \mid \rangle$ for some number in $\mathbb{N}$ (or $\langle \mathbb{N}, gcd, lcm \rangle$).
 ![[Pasted image 20240106183926.png]]
