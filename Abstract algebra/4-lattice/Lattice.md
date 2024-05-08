@@ -14,7 +14,7 @@ Equivalently, [[poset]] $L$ is a lattice only if $L$ is a upper and lower sub-la
 
 Since, $L$ is [[poset]], then lattice $L$ could be represented as a Hasse diagram. 
 ## B. Lattice as an algebraic structure
-Lattice $L$ defined  as [[algebraic system|algebraic system]] with two binary [[descrete_math/0-set_theory/operation|operations]] $\langle L, \vee, \land \rangle$ (or $\langle L, +, \cdot \rangle$). These operations follows the next properties: 
+Lattice $L$ defined  as [[algebraic system|algebraic system]] with two binary [[operation|operations]] $\langle L, \vee, \land \rangle$ (or $\langle L, +, \cdot \rangle$). These operations follows the next properties: 
 
 1) idempotent laws: $a \vee a = a$, $a \wedge a = a$
 2) absorption laws:  $a \vee (a \wedge b) = a$, $a \wedge (a \vee b) = a$

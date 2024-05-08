@@ -1,6 +1,6 @@
 (_Exploring group of 4 elements_)[]
 
-Suppose [[group]] $\langle G, \oplus \rangle$ is a group of order 4 ($char(G) = 4$).
+Suppose [[Group]] $\langle G, \oplus \rangle$ is a group of order 4 ($char(G) = 4$).
 Let $G = \{ 1, a, b, c \}$.
 
 Explore options for $ab$ or $ba$:

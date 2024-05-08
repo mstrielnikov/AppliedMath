@@ -46,6 +46,6 @@ And $\langle 2^A, \Delta \rangle$ is Abelian group if consider additional proper
 ## Formal gramatics
 Suppose $\mathbb{L}$ is set of words with operation of concatenation $|$ is monoid $\langle \mathbb{L}, | \rangle$. 
 # Links
-[[Algebraic system]]
+[[algebraic system]]
 [[halfgroup]]
 [[Descartes product]]

@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "6c286543856fd768",
+        "id": "9ea894203fb345fd",
         "type": "tabs",
         "children": [
           {
-            "id": "8891ce3319028647",
+            "id": "8c8b13b8b94f0ac6",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "README.md",
+                "mode": "source",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "README.md"
+              }
             }
           }
         ],
@@ -139,36 +147,36 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "8891ce3319028647",
+  "active": "8c8b13b8b94f0ac6",
   "lastOpenFiles": [
-    "abstract_algebra/1-halfgroup_and_monoid/Monoid.md",
-    "abstract_algebra/0-algebra/algebraic system.md",
-    "abstract_algebra/1-halfgroup_and_monoid/halfgroup.md",
-    "abstract_algebra/2-group/Group.md",
+    "Category theory/README.md",
+    "Numerical analysis/README.md",
+    "Operation research/Game theory/README.md",
+    "operation_research/2-information_theory/README.md",
+    "Abstract algebra/1-halfgroup_and_monoid/Monoid.md",
+    "Abstract algebra/0-algebra/algebraic system.md",
+    "Abstract algebra/1-halfgroup_and_monoid/halfgroup.md",
+    "Abstract algebra/2-group/Group.md",
     "Pasted image 20240107000934.png.md",
-    "abstract_algebra/1-halfgroup_and_monoid/Cyclic monoid structure.canvas",
+    "Abstract algebra/1-halfgroup_and_monoid/Cyclic monoid structure.canvas",
     "Untitled.canvas",
-    "abstract_algebra/4-lattice/Lattice.md",
-    "descrete_math/5-math_logic/Constructive logic.md",
-    "descrete_math/0-set_theory/Descartes Power.md",
-    "descrete_math/0-set_theory/Descartes product.md",
-    "linear_algebra/Lagrange polynomials.md",
+    "Abstract algebra/4-lattice/Lattice.md",
+    "Descrete math/5-math_logic/Constructive logic.md",
+    "Descrete math/0-set_theory/Descartes Power.md",
+    "Descrete math/0-set_theory/Descartes product.md",
+    "Linear algebra/Lagrange polynomials.md",
     "abstract_algebra/4-lattice/lattice.md",
-    "descrete_math/0-set_theory/operation.md",
-    "descrete_math/0-set_theory/map.md",
-    "descrete_math/0-set_theory/powerset.md",
-    "descrete_math/2-Boolean_algebra/Shannon transform.md",
-    "descrete_math/2-Boolean_algebra/Post's criterion.md",
-    "descrete_math/2-Boolean_algebra/Fourier transform on boolean functions.md",
-    "descrete_math/2-Boolean_algebra/Boolean function.md",
-    "descrete_math/2-Boolean_algebra/Boolean algebra.md",
-    "descrete_math/0-set_theory/relation.md",
-    "descrete_math/0-set_theory/poset.md",
-    "descrete_math/0-set_theory/set.md",
-    "abstract_algebra/2-group/Group of 4 elements.md",
-    "abstract_algebra/4-lattice/CVP.md",
-    "abstract_algebra/4-lattice/SIS.md",
-    "abstract_algebra/2-group/General Linear group.md",
-    "linear_algebra"
+    "Descrete math/0-set_theory/operation.md",
+    "Descrete math/0-set_theory/map.md",
+    "Descrete math/0-set_theory/powerset.md",
+    "Descrete math/2-Boolean_algebra/Shannon transform.md",
+    "Descrete math/2-Boolean_algebra/Post's criterion.md",
+    "Descrete math/2-Boolean_algebra/Fourier transform on boolean functions.md",
+    "Descrete math/2-Boolean_algebra/Boolean function.md",
+    "Descrete math/2-Boolean_algebra/Boolean algebra.md",
+    "Descrete math/0-set_theory/relation.md",
+    "Descrete math/0-set_theory/poset.md",
+    "Descrete math/0-set_theory/set.md",
+    "Linear algebra"
   ]
 }
