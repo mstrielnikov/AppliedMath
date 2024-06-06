@@ -1,1 +1,0 @@
-n-ary operation is Descartes product [[set]] which [[map|maps]]

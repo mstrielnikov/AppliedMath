@@ -1,3 +1,0 @@
-# Links
-[[set]]
-[[Descartes Power]]

@@ -1,0 +1,1 @@
+Poset (partial order or partially [[order|ordered]] [[set]]) 
