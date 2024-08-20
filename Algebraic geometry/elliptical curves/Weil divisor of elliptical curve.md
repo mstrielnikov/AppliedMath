@@ -23,5 +23,5 @@ Let $Div_{E}$ is the set of all divisors defined for elliptic curve $E$. Then $D
 1. [Wikipedia: Divisor(algebraic geometry)](https://en.wikipedia.org/wiki/Divisor_(algebraic_geometry))
 2. [Weil pairings](https://www.youtube.com/watch?v=qFGFT41GXVw&list=PLhCN8H4P5Lvh9YH6Yv8X4w8Y-WIUYOqgp&index=20)
 # Links
-[[elliptic curve field]]
+[[elliptic curves]]
 [[Weil pairing]]

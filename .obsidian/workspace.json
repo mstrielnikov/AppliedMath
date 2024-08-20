@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Numerical analysis/interpolation/Least squares.md",
+                "file": "Information and coding theory/Codding/algebraic codes/Reed-Solomon codes.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Numerical analysis/interpolation/Least squares.md",
+                "file": "Information and coding theory/Codding/algebraic codes/Reed-Solomon codes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Numerical analysis/interpolation/Least squares.md",
+                "file": "Information and coding theory/Codding/algebraic codes/Reed-Solomon codes.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Numerical analysis/interpolation/Least squares.md"
+                "file": "Information and coding theory/Codding/algebraic codes/Reed-Solomon codes.md"
               }
             }
           }
@@ -150,43 +150,43 @@
   },
   "active": "aefbd0d7cdf85542",
   "lastOpenFiles": [
-    "Numerical analysis/interpolation/Lagrange interpolation.md",
-    "Numerical analysis/interpolation/Least squares.md",
-    "resources.md",
-    "Numerical analysis/interpolation",
-    "random.md",
-    "Probability theory/spectral theory/README.md",
-    "Probability theory/Statistics/Standard diviation.md",
-    "Probability theory/Statistics/Correlation & autocorrelation & covariation.md",
-    "Probability theory/Statistics/README.md",
-    "Abstract algebra/lattice theory/lattice.md",
-    "Algebraic geometry/elliptical curves/Hasse theorem.md",
-    "Algebraic geometry/roots of polynomial",
-    "Algebraic geometry/elliptical curves/Birch conjecture.md",
-    "Algebraic geometry/modular forms/L-functions.md",
-    "Algebraic geometry",
-    "Linear algebra/bilinear form.md",
-    "Linear algebra/bilinear map.md",
-    "Linear algebra/bilinear pairing.md",
-    "Abstract algebra/halfgroup_and_monoid/Monoid.md",
-    "Abstract algebra/halfgroup_and_monoid/README.md",
-    "Abstract algebra/halfgroup_and_monoid/halfgroup.md",
-    "Abstract algebra/halfgroup_and_monoid/Cyclic monoid structure.canvas",
-    "Abstract algebra/group/twisted group.md",
-    "Abstract algebra/group/Sylow theorems.md",
-    "Abstract algebra/group/subgroup.md",
-    "Abstract algebra/group/special orthogonal group.md",
-    "Abstract algebra/group/special linear group.md",
-    "Abstract algebra/group/orbit.md",
-    "Abstract algebra/group/module group.md",
+    "Abstract algebra/lattice algebra/Lattice theory.md",
+    "Linear algebra/Linear operators/Jordan's decomposition.md",
+    "Linear algebra/Decompositions/LU-decomposition.md",
+    "Linear algebra/polynomials/Polynomial roots.md",
+    "Linear algebra/polynomials/Irreducible polynomials.md",
+    "Linear algebra/polynomials/Gorner scheme.md",
+    "Linear algebra/polynomials/Linearised polynomial.md",
+    "Linear algebra/polynomials/Polynomial division.md",
+    "Linear algebra/polynomials/Chebyshev polynimial.md",
+    "Linear algebra/Vector spaces/Sum and intersection of linear subspaces.md",
+    "Abstract algebra/group/Group of 4 elements.md",
+    "Abstract algebra/group/Group.md",
+    "Abstract algebra/group/General Linear group.md",
+    "Abstract algebra/group/factor group.md",
     "Abstract algebra/group/Lagrange theorems.md",
-    "Abstract algebra/lattice/Untitled",
-    "Number theory/Diophan equations",
-    "Algebraic geometry/modular forms",
-    "Operation research/quantum game theory",
-    "Information and coding theory",
-    "Linear algebra/Untitled",
-    "Abstract algebra/module",
+    "Abstract algebra/halfgroup_and_monoid/Monoid.md",
+    "Abstract algebra/lattice algebra/Boolean algebras as a special case of lattice.md",
+    "Linear algebra/Vector spaces/Direct sum and Descartes product of linear subspaces.md",
+    "Linear algebra/Vectors & Matrices/basis.md",
+    "Linear algebra/Vector spaces/vector space.md",
+    "Linear algebra/Vector spaces/examples of vector spaces.md",
+    "resources.md",
+    "random.md",
+    "Number theory/prime numbers/README.md",
+    "Abstract algebra/README.md",
+    "Category theory/README.md",
+    "Linear algebra/polynomials/Untitled",
+    "Information and coding theory/Codding/MDS codes",
+    "Information and coding theory/Codding/low-density-parity-check codes",
+    "Information and coding theory/Codding/algebraic codes",
+    "Information and coding theory/§",
+    "Linear algebra/Projective plain",
+    "Descrete math/5-math_logic/formal languages",
+    "Information and coding theory/Codes/linear code",
+    "Information and coding theory/Codding/convolutional code",
+    "Information and coding theory/Codding/BCH codes",
+    "Abstract algebra/halfgroup_and_monoid/Cyclic monoid structure.canvas",
     "Abstract algebra/1-halfgroup_and_monoid/Untitled Diagram.svg",
     "Untitled.canvas"
   ]

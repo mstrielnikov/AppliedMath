@@ -10,4 +10,4 @@ Let $f$ and $g$ are real functions defined over elliptical curve $E$, then $f(Di
 # Links
 [[Weil pairing]]
 [[Weil divisor of elliptical curve]]
-[[elliptic curve field]]
+[[elliptic curves]]
