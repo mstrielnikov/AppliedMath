@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "6c286543856fd768",
+        "id": "82e5591efd0f37f7",
         "type": "tabs",
         "children": [
           {
-            "id": "8891ce3319028647",
+            "id": "aefbd0d7cdf85542",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "abstract_algebra/4-lattice/lattice.md",
+                "file": "Information and coding theory/Codding/algebraic codes/Reed-Solomon codes.md",
                 "mode": "source",
                 "source": false
               }
@@ -48,7 +48,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "",
+                "query": "tag:#Kuratowski-Zorn",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "abstract_algebra/4-lattice/lattice.md",
+                "file": "Information and coding theory/Codding/algebraic codes/Reed-Solomon codes.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "abstract_algebra/4-lattice/lattice.md",
+                "file": "Information and coding theory/Codding/algebraic codes/Reed-Solomon codes.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "abstract_algebra/4-lattice/lattice.md"
+                "file": "Information and coding theory/Codding/algebraic codes/Reed-Solomon codes.md"
               }
             }
           }
@@ -144,37 +144,50 @@
       "daily-notes:Open today's daily note": false,
       "templates:Insert template": false,
       "graph:Open graph view": false,
-      "command-palette:Open command palette": false
+      "command-palette:Open command palette": false,
+      "obsidian-excalidraw-plugin:Create new drawing": false
     }
   },
-  "active": "8891ce3319028647",
+  "active": "aefbd0d7cdf85542",
   "lastOpenFiles": [
-    "abstract_algebra/4-lattice/lattice.md",
-    "descrete_math/0-set_theory/operation.md",
-    "descrete_math/0-set_theory/Descartes product.md",
-    "descrete_math/0-set_theory/map.md",
-    "descrete_math/0-set_theory/powerset.md",
-    "descrete_math/2-Boolean_algebra/Shannon transform.md",
-    "descrete_math/2-Boolean_algebra/Post's criterion.md",
-    "descrete_math/2-Boolean_algebra/Fourier transform on boolean functions.md",
-    "descrete_math/2-Boolean_algebra/Boolean function.md",
-    "descrete_math/2-Boolean_algebra/Boolean algebra.md",
-    "descrete_math/0-set_theory/relation.md",
-    "abstract_algebra/1-halfgroup_and_monoid/halfgroup.md",
-    "descrete_math/0-set_theory/poset.md",
-    "descrete_math/0-set_theory/set.md",
-    "abstract_algebra/2-group/Group of 4 elements.md",
-    "abstract_algebra/4-lattice/CVP.md",
-    "abstract_algebra/4-lattice/SIS.md",
-    "abstract_algebra/2-group/General Linear group.md",
-    "supremum.md",
-    "linear_algebra/linear transform.md",
-    "linear_algebra/spectral characteristics of matrices.md",
-    "linear_algebra/linear space.md",
-    "linear_algebra/matrix multiplication.md",
-    "linear_algebra/matrice.md",
-    "linear_algebra",
-    "matrices.md",
-    "linear_algebra/3-matrix_decompositions/README.md"
+    "Abstract algebra/lattice algebra/Lattice theory.md",
+    "Linear algebra/Linear operators/Jordan's decomposition.md",
+    "Linear algebra/Decompositions/LU-decomposition.md",
+    "Linear algebra/polynomials/Polynomial roots.md",
+    "Linear algebra/polynomials/Irreducible polynomials.md",
+    "Linear algebra/polynomials/Gorner scheme.md",
+    "Linear algebra/polynomials/Linearised polynomial.md",
+    "Linear algebra/polynomials/Polynomial division.md",
+    "Linear algebra/polynomials/Chebyshev polynimial.md",
+    "Linear algebra/Vector spaces/Sum and intersection of linear subspaces.md",
+    "Abstract algebra/group/Group of 4 elements.md",
+    "Abstract algebra/group/Group.md",
+    "Abstract algebra/group/General Linear group.md",
+    "Abstract algebra/group/factor group.md",
+    "Abstract algebra/group/Lagrange theorems.md",
+    "Abstract algebra/halfgroup_and_monoid/Monoid.md",
+    "Abstract algebra/lattice algebra/Boolean algebras as a special case of lattice.md",
+    "Linear algebra/Vector spaces/Direct sum and Descartes product of linear subspaces.md",
+    "Linear algebra/Vectors & Matrices/basis.md",
+    "Linear algebra/Vector spaces/vector space.md",
+    "Linear algebra/Vector spaces/examples of vector spaces.md",
+    "resources.md",
+    "random.md",
+    "Number theory/prime numbers/README.md",
+    "Abstract algebra/README.md",
+    "Category theory/README.md",
+    "Linear algebra/polynomials/Untitled",
+    "Information and coding theory/Codding/MDS codes",
+    "Information and coding theory/Codding/low-density-parity-check codes",
+    "Information and coding theory/Codding/algebraic codes",
+    "Information and coding theory/§",
+    "Linear algebra/Projective plain",
+    "Descrete math/5-math_logic/formal languages",
+    "Information and coding theory/Codes/linear code",
+    "Information and coding theory/Codding/convolutional code",
+    "Information and coding theory/Codding/BCH codes",
+    "Abstract algebra/halfgroup_and_monoid/Cyclic monoid structure.canvas",
+    "Abstract algebra/1-halfgroup_and_monoid/Untitled Diagram.svg",
+    "Untitled.canvas"
   ]
 }

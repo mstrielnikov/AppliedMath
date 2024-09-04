@@ -1,1 +1,0 @@
-## Zhegalkin polynomials
