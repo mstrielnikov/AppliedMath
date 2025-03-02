@@ -1,9 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="06f265bf-cf6f-4ff6-bd2f-2512b423c38c" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/calculus/22-harmonic_analysis/000-fourier_transform.md" beforeDir="false" afterPath="$PROJECT_DIR$/calculus/22-harmonic_analysis/Fourier_series.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/probability_statistics_stochastic_processes/20-stochastic_models/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/probability_statistics_stochastic_processes/20-stochastic processes/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Operation research/Mathematical programming/01-dualism_theory.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/descrete_math/0-set_theory/total order.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/operation_research/mathematical_programming/01-duality_theory.md" beforeDir="false" afterPath="$PROJECT_DIR$/Operation research/Mathematical programming/01-duality_theory.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,9 +18,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 2
-}]]></component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="8y25zqpe" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 2
+}</component>
   <component name="ProjectId" id="2g9cFE3oie3m2pGq999Op7WJCop" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -24,12 +32,23 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.rust.reset.selective.auto.import": "true",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/mstrielnikov/Personal/PhD/projects/AppliedMath",
+    "last_opened_file_path": "/home/max/projects/Math",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "org.rust.cargo.project.model.impl.CargoExternalSystemProjectAware.subscribe.first.balloon": "",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Operation research" />
+      <recent name="$PROJECT_DIR$/Abstract algebra/lattice algebra" />
+      <recent name="$PROJECT_DIR$/Abstract algebra/lattice algebra/images/lattice" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -47,6 +66,7 @@
       <option name="presentableId" value="Default" />
       <updated>1715113127826</updated>
       <workItem from="1715113128959" duration="226000" />
+      <workItem from="1725453010336" duration="524000" />
     </task>
     <servers />
   </component>

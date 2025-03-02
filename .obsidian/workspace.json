@@ -13,10 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Information and coding theory/Codding/algebraic codes/Reed-Solomon codes.md",
+                "file": "Calculus/3_series_&_sequences/2_formal_power_series_&_generating_functions/6_reccurent_series.md",
                 "mode": "source",
                 "source": false
-              }
+              },
+              "icon": "lucide-file",
+              "title": "6_reccurent_series"
             }
           }
         ]
@@ -38,8 +40,11 @@
             "state": {
               "type": "file-explorer",
               "state": {
-                "sortOrder": "alphabetical"
-              }
+                "sortOrder": "alphabetical",
+                "autoReveal": false
+              },
+              "icon": "lucide-folder-closed",
+              "title": "Files"
             }
           },
           {
@@ -54,7 +59,9 @@
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical"
-              }
+              },
+              "icon": "lucide-search",
+              "title": "Search"
             }
           },
           {
@@ -62,7 +69,9 @@
             "type": "leaf",
             "state": {
               "type": "bookmarks",
-              "state": {}
+              "state": {},
+              "icon": "lucide-bookmark",
+              "title": "Bookmarks"
             }
           }
         ]
@@ -85,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "Information and coding theory/Codding/algebraic codes/Reed-Solomon codes.md",
+                "file": "Appliead(abstract)_algebra/1_Group_theory/2_Group/Klein_group.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -93,7 +102,9 @@
                 "searchQuery": "",
                 "backlinkCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-coming-in",
+              "title": "Backlinks for Klein_group"
             }
           },
           {
@@ -102,10 +113,12 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "Information and coding theory/Codding/algebraic codes/Reed-Solomon codes.md",
+                "file": "Appliead(abstract)_algebra/1_Group_theory/2_Group/Klein_group.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
-              }
+              },
+              "icon": "links-going-out",
+              "title": "Outgoing links from Klein_group"
             }
           },
           {
@@ -116,7 +129,9 @@
               "state": {
                 "sortOrder": "frequency",
                 "useHierarchy": true
-              }
+              },
+              "icon": "lucide-tags",
+              "title": "Tags"
             }
           },
           {
@@ -125,8 +140,10 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "Information and coding theory/Codding/algebraic codes/Reed-Solomon codes.md"
-              }
+                "file": "Appliead(abstract)_algebra/1_Group_theory/2_Group/Klein_group.md"
+              },
+              "icon": "lucide-list",
+              "title": "Outline of Klein_group"
             }
           }
         ],
@@ -150,6 +167,21 @@
   },
   "active": "aefbd0d7cdf85542",
   "lastOpenFiles": [
+    "Calculus/3_series_&_sequences/2_formal_power_series_&_generating_functions/4_number_systems.md",
+    "Calculus/3_series_&_sequences/0_number_series/pi_approximations.md",
+    "Calculus/3_series_&_sequences/0_number_series/euler_number_approximation.md",
+    "Calculus/3_series_&_sequences/0_number_series/convergence.md",
+    "Calculus/3_series_&_sequences/2_formal_power_series_&_generating_functions/9_failing_factorial.md",
+    "Calculus/3_series_&_sequences/2_formal_power_series_&_generating_functions/7_generating_functions.md",
+    "Calculus/3_series_&_sequences/2_formal_power_series_&_generating_functions/8_homogenous_reccurent_equations.md",
+    "Calculus/3_series_&_sequences/2_formal_power_series_&_generating_functions/6_reccurent_series.md",
+    "Calculus/3_series_&_sequences/2_formal_power_series_&_generating_functions/5_formal_power_series.md",
+    "Appliead(abstract)_algebra/8_Information_and_coding_theory/Codding/algebraic codes/Reed-Solomon codes.md",
+    "Descrete_math/1-graph_theory/zero edges graph.md",
+    "Appliead(abstract)_algebra/1_Group_theory/2_Group/Klein_group.md",
+    "Descrete math/2-Boolean_algebra/Boolean functions.md",
+    "Abstract algebra/group/Group of 4 elements.md",
+    "Information and coding theory/Codding/algebraic codes/Reed-Solomon codes.md",
     "Abstract algebra/lattice algebra/Lattice theory.md",
     "Linear algebra/Linear operators/Jordan's decomposition.md",
     "Linear algebra/Decompositions/LU-decomposition.md",
@@ -160,22 +192,7 @@
     "Linear algebra/polynomials/Polynomial division.md",
     "Linear algebra/polynomials/Chebyshev polynimial.md",
     "Linear algebra/Vector spaces/Sum and intersection of linear subspaces.md",
-    "Abstract algebra/group/Group of 4 elements.md",
     "Abstract algebra/group/Group.md",
-    "Abstract algebra/group/General Linear group.md",
-    "Abstract algebra/group/factor group.md",
-    "Abstract algebra/group/Lagrange theorems.md",
-    "Abstract algebra/halfgroup_and_monoid/Monoid.md",
-    "Abstract algebra/lattice algebra/Boolean algebras as a special case of lattice.md",
-    "Linear algebra/Vector spaces/Direct sum and Descartes product of linear subspaces.md",
-    "Linear algebra/Vectors & Matrices/basis.md",
-    "Linear algebra/Vector spaces/vector space.md",
-    "Linear algebra/Vector spaces/examples of vector spaces.md",
-    "resources.md",
-    "random.md",
-    "Number theory/prime numbers/README.md",
-    "Abstract algebra/README.md",
-    "Category theory/README.md",
     "Linear algebra/polynomials/Untitled",
     "Information and coding theory/Codding/MDS codes",
     "Information and coding theory/Codding/low-density-parity-check codes",
