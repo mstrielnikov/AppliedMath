@@ -4,10 +4,13 @@ This conspect explores the connection between Knapsack problems and modern Resou
 
 ## 1. Introduction
 
-Resource allocation is a generalization of the Knapsack problem where "items" (tasks, VMs, pods) consume multiple dimensions of resources (CPU, RAM, Disk) and must be packed into "bins" (nodes, servers).
+Resource allocation is fundamentally a **Linear Integer Programming (ILP)** problem. It involves making discrete decisions ("Should I run this task?") under rigid resource constraints.
 
-*   **Classical View**: Fixed infrastructure capacity $\implies$ **Hard Constraints**.
-*   **Modern View**: Cloud/Elastic infrastructure $\implies$ **Soft Constraints** (Pay-for-use).
+*   **ILP Basis**: The problem is defined by a set of linear inequalities where decision variables are binary (0 or 1). 
+*   **Knapsack Implication**: In this specific domain, the ILP constraints take the form of capacity limits. This makes resource allocation a **generalization of the Knapsack problem**. It is important to note that the Knapsack structure is an *implication* of how general ILP rules are applied to resource consumption, not the root cause of the problem's complexity.
+*   **Paradigm Shift**:
+    *   **Classical View**: Fixed infrastructure capacity $\implies$ **Hard Constraints (ILP)**.
+    *   **Modern View**: Cloud/Elastic infrastructure $\implies$ **Soft Constraints (Linear Programming)**.
 
 ## 2. The Hard Regime: Fixed Infrastructure
 
@@ -38,166 +41,191 @@ $$
 The combination of bin choices (Bin Packing) and item selection (Knapsack) with multi-dimensional constraints leads to severe intractability. Solvers (MIP) struggle as $m, n$ grow.
 
 ### 2.3. The Geometry of Interference (Dot Product Bridge)
-To bridge the gap between "Tetris" intuition and formal complexity, we look at the **Dot Product** of resource requests.
 
-For a single resource dimension and a fixed node $i$, let $\mathbf{r} = [r_1, r_2, \dots, r_m]^\top$ be the vector of resource requests for all tasks. The requirement that all assigned tasks fit into capacity $C_i$ can be written as:
-$$ \mathbf{r}^\top \mathbf{y}_{:i} \le C_i $$
-where $\mathbf{y}_{:i} = [y_{1i}, y_{2i}, \dots, y_{mi}]^\top$ is the assignment vector for node $i$ (which tasks are assigned to node $i$).
+To move beyond "Tetris" intuition, we analyze resource constraints as a **discrete search problem** across a resource grid, using the **Dot Product**.
 
-**Why this is NP-Hard (The "Tetris" Lock):**
-1.  **Discrete Projection**: The decision vector $\mathbf{y}_{:i}$ is binary. The dot product is not a smooth projection but a selection of discrete "blocks".
-2.  **Multidimensional Interference**: With $d$ resources, we have $d$ simultaneous dot products:
-    $$\mathbf{R}^\top \mathbf{y}_{:i} \preceq \mathbf{C}_i$$
-    A task might "fit" in the CPU dimension but "collide" in the Memory dimension. This multi-axis interference means you can't simply sort by one density; you must solve a combinatorial puzzle where tasks "block" each other across different resource axes.
-3.  **Cross-Node Competition**: Because $\sum_i y_{ji} = 1$, tasks must choose which node to "consume". The intersection of these discrete dot product constraints across all $n$ nodes creates a rigid state-space where most configurations are invalid, leading to the exponential search complexity typical of NP-Hard problems.
+For a single resource dimension $k$ and a fixed node $i$, let $\mathbf{r}_k = [r_{1k}, r_{2k}, \dots, r_{mk}]^\top$ be the vector of resource requests. The constraint is:
+$$ \mathbf{r}_k^\top \mathbf{y}_{:i} \le C_{ik} $$
+
+#### 1. Dot Product as "Occupation Size"
+The dot product $\mathbf{r}_k^\top \mathbf{y}_{:i}$ represents the **total size** of the grid space occupied by the selected tasks on node $i$.
+- $\mathbf{y}_{:i}$ is our "search coordinate" in a discrete $m$-dimensional space.
+- The dot product "weights" each dimension by the resource request $r_{jk}$.
+- Solving the allocation problem is equivalent to exploring a **discrete grid of combinations** to find the set $\mathbf{y}$ that packs the most value without exceeding the "size" limit $C$.
+
+#### 2. Why this is NP-Hard (The Brute Force Barrier)
+The hardness of the Hard Regime is the difficulty of **pure brute-force packing**:
+1.  **Combinatorial Explosion**: With $m$ tasks, there are $2^m$ possible configurations of $\mathbf{y}_{:i}$. For a cluster with 50 tasks, this is over $2^{50} \approx 10^{15}$ combinations—far too many to check one-by-one.
+2.  **Lattice Locking**: Because decisions are binary (0 or 1), we cannot "slide" tasks into better positions like we can with continuous values. We are jumping between fixed lattice points in an $m$-dimensional grid.
+3.  **Multidimensional Collisions**: In many-resource systems, a task might occupy a small "size" in CPU but a massive "size" in RAM. These collisions across different resource grids force the search algorithm to backtrack constantly, making the packing process exponentially slow.
+
+#### 3. Formal Hardness: Discrete Intersection
+The search for a binary vector that satisfies $\mathbf{R}^\top \mathbf{y}_{:i} \preceq \mathbf{C}_i$ is the **Multi-dimensional Multiple Knapsack Problem (MMKP)**. It is NP-hard because there is no shortcut to navigating the lattice; finding the global optimum requires a search space that grows exponentially with the number of tasks, as the "geometry" of the grid offers no smooth gradient to follow.
 
 <details>
-<summary><strong>Numeric Example: Bound by the Dot Product</strong></summary>
+<summary>Numeric Example: Lattice Blockage</summary>
 
 **Scenario**: 2 Tasks, 1 Node (Capacity: 10 CPU, 10 RAM).
-*   **Task 1**: $\mathbf{r}_1 = [8, 3]^\top$ (Heavy CPU)
-*   **Task 2**: $\mathbf{r}_2 = [3, 8]^\top$ (Heavy RAM)
+*   **Task 1**: $\mathbf{r}_1 = [8, 3]^\top$
+*   **Task 2**: $\mathbf{r}_2 = [3, 8]^\top$
 
-**Decision**: Attempt to schedule both ($\mathbf{y} = [1, 1]^\top$).
-*   **CPU Check**: $[8, 3] \cdot [1, 1] = 8(1) + 3(1) = \mathbf{11} > 10$. (**Fail**)
-*   **RAM Check**: $[3, 8] \cdot [1, 1] = 3(1) + 8(1) = \mathbf{11} > 10$. (**Fail**)
+**Lattice Points**:
+- $Y = [0, 0]$ (Empty): Cost $[0, 0] \le [10, 10]$ ✅
+- $Y = [1, 0]$ (Task 1): Cost $[8, 3] \le [10, 10]$ ✅
+- $Y = [0, 1]$ (Task 2): Cost $[3, 8] \le [10, 10]$ ✅
+- $Y = [1, 1]$ (Both): Cost $[11, 11] \not\le [10, 10]$ ❌
 
-**Analysis**: Even though total units ($11$) only slightly exceed capacity, the "shape" of the requests—represented by the resource vectors—creates a collision in both dimensions. In the Hard Regime, you are "locked" by the worst-performing dot product.
+**Analysis**: The "collision" occurs because the vector sum of Task 1 and Task 2 deviates from the origin faster than the individual bounds allow. In the Hard Regime, we are searching for the "maximal lattice point" within the polyhedron, which is a combinatorial nightmare.
+
 </details>
 
 ---
 
 ## 3. The Soft Regime: Elastic Infrastructure
 
-In cloud environments (e.g., Kubernetes Autoscaling, Spot Instances), node capacities are not fixed constants but **decisions**. We pay for the resources we provision. This assumption "softens" the problem.
+In cloud environments (e.g., Kubernetes, Serverless), resource constraints are rarely absolute. Capacities can be provisioned on-demand, transforming the technical problem of "packing" into an economic problem of **efficiency**. This transition is a process of **Linearization**.
 
-### 3.1. Key Relaxations
-1.  **Elasticity**: Capacities $C_{ik}$ become decision variables $c_{ik}$.
-2.  **Linear Cost**: Objective becomes `Value - Cost`.
-3.  **Single-Dimension Dominance**: In practice, one resource (e.g., CPU) often bottlenecks the cost, allowing decoupling of dimensions.
+### 3.1. Theoretical Transition: From ILP to LP
 
-### 3.2. Linear Programming Formulation (LP)
-We relax integrality ($x_j \in [0,1]$) and treat node sizing as continuous.
+The transition from the Hard Regime (ILP) to the Soft Regime (LP) is not a "default" relaxation, but a deliberate process of **Linearization and Softening**. We move from a rigid combinatorial space into a **Fractional Mixed-Integer** optimization context.
 
-*   **Variables**:
-    *   $x_j \in [0, 1]$: Fraction of task $j$ scheduled.
-    *   $y_{ji} \in [0, 1]$: Fraction of task $j$ assigned to node $i$ (relaxed from binary).
-    *   $c_{i} \ge 0$: Capacity provisioned for node $i$.
-*   **Parameters** (simplified to single dimension $d=1$ for clarity):
-    *   $r_j$: Resource request of task $j$.
-    *   $\lambda$: Unit cost of resource (price per CPU, RAM, etc.).
+#### 1. The Mechanism of Linearization
+The primary cause of linearization is the **Elastic Capacity** assumption.
+- **Hard Regime**: Total capacity $C$ is fixed. Decisions $y_{ji}$ are coupled because tasks compete for the same finite space. This creates the "Tetris" interference.
+- **Soft Regime**: We assume we can provision capacity on-demand ($c_k = \sum r_{jk} x_j$). By making capacity a variable that scales with demand, we **decouple** the tasks. Each task's admission is now an independent local check, turning the global MMKP into a series of $m$ linear decisions.
 
+#### 2. Fractional Softening
+While the final decision ($x_j$) remains binary in intent (either a task runs or it doesn't), the optimization process is softened by allowing:
+- **Fractional Coefficients**: Values $v_j$ and costs $\lambda \cdot r_j$ can be real numbers.
+- **Fractional Densities**: The "Bang-per-buck" ratio ($v_j / r_j$) is treated as a continuous variable.
+- **Integer Resources**: Resource limits ($C$) often remain integers, but the *effective* cost calculation is performed in the fractional domain.
+
+#### 3. General Linear Programming Formulation
+This softening allows us to pose the problem as a continuous LP:
 $$
 \begin{aligned}
-\text{Maximize} \quad & \sum_{j=1}^m v_j x_j - \lambda \sum_{i=1}^n c_i \\
-\text{Subject to} \quad & \sum_{j=1}^m r_j y_{ji} \le c_i \quad \forall i \in N \\
-& \sum_{i=1}^n y_{ji} = x_j \quad \forall j \in J \\
-& 0 \le x_j, y_{ji} \le 1, \quad c_i \ge 0
+\text{Maximize} \quad & \sum_{j=1}^m v_j x_j - \lambda \sum_{k=1}^d r_{jk} x_j \\
+\text{Subject to} \quad & 0 \le x_j \le 1
 \end{aligned}
 $$
+By operating in this fractional space, we can use gradient-based filtering rules that are impossible in the discrete lattice of the Hard Regime.
 
-**Complexity**: **Polynomial (P)** — Specifically **$O(m)$ for filtering**.
+#### 4. Proof of Compliance (Integrality Property)
+We must justify why this continuous "Soft" approach is valid for a discrete "Hard" reality.
+- **Regrouping**: The objective $\sum v_j x_j - \lambda \sum r_j x_j$ can be rewritten as:
+  $$ \text{Maximize } \sum_{j=1}^m \underbrace{(v_j - \lambda r_j)}_{\text{Net Profit}_j} \cdot x_j $$
+- **The Threshold Rule**: Since each $x_j$ is independent, to maximize the total, we set $x_j = 1$ if $(v_j - \lambda r_j) > 0$ and $x_j = 0$ otherwise.
+- **Conclusion**: The LP relaxation **naturally yields integer solutions** (0 or 1). This is a known technique where softening a constraint (elastic capacity) removes the combinatorial interference, linearizing the complexity class from **NP-Hard** to **P**.
 
-When capacity is elastic (we provision exactly what we use), the LP simplifies to independent per-task decisions:
-*   **General LP**: Solvable in $O(n^3)$ via Interior Point methods or $O(n^{2.5})$ expected time via Simplex.
-*   **Elastic Infrastructure**: The problem reduces to **filtering** (Section 4.3), which is simply $O(m)$ — one comparison per task.
-*   **Contrast with Hard Regime**: Fixed infrastructure (Section 2) is **NP-Hard** due to bin-packing combinatorics.
+### 3.2. Intuitive Explanation: Tetris vs. Water
 
-This is **not NP-Hard**; it belongs to class **P** (polynomial time).
+To understand why this is so much easier, consider the physical analogy:
+- **Hard Regime** is like **Tetris**. You have rigid tasks (blocks) and a fixed node (grid). Small gaps are wasted (fragmentation). You must solve a puzzle.
+- **Soft Regime** is like **filling buckets with water**. Since you can resize the bucket (elastic capacity), "shape" doesn't matter. You only care if the "water" (task value) is worth the cost of the "volume" (resource price).
 
-### 3.3. Alternative: Fractional Programming (Efficiency Maximization)
+### 3.3. Comparative Example: Hard vs. Soft
 
-Our approach so far has used a **linear objective** (Value - Cost). Fractional programming offers an alternative perspective by directly maximizing **efficiency ratios**.
-
-#### 1. The Fractional Objective
-Instead of `max(Value - λ·Cost)`, we can pose the problem as:
-$$ \text{Maximize} \quad \frac{\sum_{j=1}^m v_j x_j}{\sum_{j=1}^m r_j x_j} $$
-This asks: *"What is the best **Value per Unit Resource** I can achieve?"*
-
-#### 2. Relationship to Linear Approach
-The two perspectives are **dual** to each other:
-- **Linear (our approach)**: Fix price $\lambda$, maximize profit. Different $\lambda$ values trace the **efficiency frontier**.
-- **Fractional**: Maximize efficiency directly, the optimal dual variable is the **shadow price**.
-
-Mathematically, if $\lambda^*$ is the optimal ratio in the fractional problem, then:
-$$ \lambda^* = \frac{\sum v_j x_j^*}{\sum r_j x_j^*} $$
-and the linear problem with $\lambda = \lambda^*$ yields the same solution.
-
-#### 3. Solving via Charnes-Cooper Transformation
-The fractional program can be **transformed into a Linear Program** using the Charnes-Cooper change of variables:
-- Let $t = 1 / \sum r_j x_j$ (resource reciprocal)
-- Substitute $z_j = t \cdot x_j$ (note: using $z_j$ to avoid confusion with assignment variable $y_{ji}$)
-
-The fractional LP becomes:
-$$
-\begin{aligned}
-\text{Maximize} \quad & \sum_{j=1}^m v_j z_j \\
-\text{Subject to} \quad & \sum_{j=1}^m r_j z_j = 1 \\
-& z_j \ge 0
-\end{aligned}
-$$
-
-This is now a **standard LP**, solvable in polynomial time.
-
-#### 4. What Fractional Programming Adds
-
-**Novel Insights**:
-1.  **Pareto Frontier**: Varying $\lambda$ in the linear model traces the **trade-off curve** between total value and resource consumption. The fractional model finds the **maximum efficiency point** on this curve.
-2.  **Budget-Agnostic**: Fractional optimization doesn't require knowing $\lambda$ upfront — useful when market prices are uncertain.
-3.  **Multi-Resource Generalization**: For vector resources, we can maximize weighted efficiency:
-    $$ \frac{\sum v_j x_j}{\boldsymbol{\lambda}^\top \mathbf{R}^\top \mathbf{x}} $$
-    This unifies multi-dimensional filtering into a single ratio.
+Let's validate this transition with a concrete scenario: 3 Tasks, 1 Resource (CPU).
+- **Task A**: \$10, 5 CPU (Dens 2.0) | **Task B**: \$15, 5 CPU (Dens 3.0) | **Task C**: \$12, 4 CPU (Dens 3.0)
 
 <details>
-<summary><strong>Numeric Example: Efficiency vs. Linear</strong></summary>
+<summary>Numeric Example: Case 1 - Hard Regime (Fixed Node, Cap 9)</summary>
+
+**Constraint**: Must fit in a size 9 box.
+- **A+C**: Size 9, Value \$22.
+- **B+C**: Size 9, Value \$27. ✅
+- **A+B**: Size 10, **Does not fit**.
+
+**Analysis**: We were forced to reject A+B even though they had raw value \$25 due to "Fragmentation".
+
+</details>
+
+<details>
+<summary>Numeric Example: Case 2 - Soft Regime (Elastic Cloud, Price = 2.5)</summary>
+
+**Decision Rule**: $v_j/r_j > 2.5$.
+- **Task A**: 2.0 < 2.5 ❌ **Reject**.
+- **Task B**: 3.0 > 2.5 ✅ **Accept**.
+- **Task C**: 3.0 > 2.5 ✅ **Accept**.
+
+**Analysis**: Tasks are checked independently. Task A is rejected not because it "doesn't fit", but because it isn't profitable at current market prices.
+
+</details>
+
+#### Visualizing the Transition
+```mermaid
+graph TD
+    subgraph Hard["Hard Regime (Tetris Constraint)"]
+        direction TB
+        subgraph Bin["Fixed Node (Capacity 9)"]
+            Slot1["Task B (Size 5)"]
+            Slot2["Task C (Size 4)"]
+        end
+        TaskA["Task A (Size 5)"] -- "Fragmentation Lock" --> Bin
+    end
+    subgraph Soft["Soft Regime (Elastic Price)"]
+        Filter{"Price Filter<br>(Density > 2.5?)"}
+        InputA["Task A"] --> Filter
+        InputB["Task B"] --> Filter
+        InputC["Task C"] --> Filter
+        Filter -- "Accept" --> Cloud[Elastic Cloud]
+    end
+```
+
+## 4. Alternative Filter Definitions
+
+The "Linear Profit" model ($v - \lambda r$) introduced in Chapter 3 is the most common way to soften a resource allocation problem, but it is not the only one. We can define the **filter logic** through different mathematical lenses.
+
+### 4.1. Efficiency Interpretation: Fractional Programming
+
+Instead of maximizing total profit, we can maximize the **Efficiency Ratio** of the entire system. This is an alternative statement of the softened approach that focuses on "bang-for-buck" without requiring an upfront price $\lambda$.
+
+#### 1. The Fractional Objective
+We pose the problem as maximizing the value-per-unit-resource:
+$$ \text{Maximize} \quad \Phi = \frac{\sum_{j=1}^m v_j x_j}{\sum_{j=1}^m r_j x_j} $$
+
+#### 2. Duality with Linear Filter
+As shown in Section 3.1, the linear and fractional models are dual perspectives. In the fractional model, the system **automatically discovers** the optimal shadow price $\lambda^*$:
+$$ \lambda^* = \Phi_{\text{max}} $$
+This implies that maximizing global efficiency is equivalent to running a linear filter where the threshold is set to the highest achievable efficiency ratio.
+
+<details>
+<summary>Numeric Example: Efficiency vs. Linear Filter</summary>
 
 **Task Set**:
 - Task A: Value 10, Resource 5 (Density 2.0)
 - Task B: Value 15, Resource 10 (Density 1.5)
 
-**Scenario 1: Linear (λ = 1.8)**
-- Net Profit A: $10 - 1.8(5) = 1.0$ ✅ Accept
-- Net Profit B: $15 - 1.8(10) = -3.0$ ❌ Reject
-- Result: Select A. Efficiency = 10/5 = **2.0**.
+**Scenario 1: Linear Filter (λ = 1.8)**
+- Net Profit A: $10 - 1.8(5) = 1.0$ ✅ **Accept**
+- Net Profit B: $15 - 1.8(10) = -3.0$ ❌ **Reject**
+- **Result**: Select A. Efficiency = 10/5 = **2.0**.
 
-**Scenario 2: Fractional (Max Efficiency)**
+**Scenario 2: Fractional Filter (Max Efficiency)**
 - Only A: Efficiency 10/5 = **2.0**
 - Only B: Efficiency 15/10 = **1.5**
 - Both: Efficiency (10+15)/(5+10) = **1.67**
-- Result: Select A. Efficiency = **2.0** (same as linear with $\lambda = 2.0$).
+- **Result**: Select A. Efficiency = **2.0**.
 
-**Insight**: The fractional problem **automatically finds** the optimal $\lambda^* = 2.0$ without us specifying it.
+**Insight**: The fractional problem **automatically finds** the optimal threshold $\lambda^* = 2.0$ without requiring an external price.
+
 </details>
 
-**Conclusion**: Fractional programming doesn't replace our linear approach but complements it by providing:
-- An alternative formulation when prices are unknown
-- A direct path to the efficiency frontier
-- A unifying view of multi-resource optimization
+### 4.2. Basis Change: The Charnes-Cooper Transformation
 
-Both reduce to **P-time** solvable problems, maintaining the polynomial tractability of the elastic regime.
+To solve the fractional filter as a standard Linear Program, we perform a coordinate transformation known as the **Charnes-Cooper Transformation**. This can be viewed as a **change of basis** that linearizes the ratio.
+
+#### 1. Mathematical Transformation
+We change the problem's coordinate system such that the total resource consumption is normalized:
+- **Scaling Factor**: Let $t = 1 / \sum r_j x_j$.
+- **New Basis**: Define $z_j = t \cdot x_j$.
+
+In this new basis, the constraint $\sum r_j z_j = 1$ replaces the varying denominator. The objective becomes a standard linear sum $\sum v_j z_j$.
+
+#### 2. Why it Matters
+This transformation proves that **ratio-based filtering** is structurally identical to **linear profit-based filtering**. By changing the "basis" of our resource metrics, we map a non-linear efficiency ratio into a linear space, preserving the $O(1)$ per-task decision capability.
 
 ---
-
-## 4. Intuitive Explanation and Proof of Compliance
-
-To understand why "softening" the problem makes it so much easier, we can use a physical analogy.
-
-### 4.1. The Analogy: Tetris vs. Water
-*   **Hard Regime (Fixed Infrastructure)** is like **Tetris**. You have rigid blocks (tasks) and a fixed grid (node). You must fit them exactly. Small gaps are wasted. This is hard (NP-Hard).
-*   **Soft Regime (Elastic Infrastructure)** is like **filling buckets with water**. Since you can resize the bucket (provision capacity on-demand) to typical cloud "pay-for-use" models, the shape doesn't matter as much. You only care if the water (task value) is worth the cost of the bucket volume (resource cost).
-
-### 4.2. Step-by-Step Application
-Here is how the mathematical formulas translate into a real-world decision process:
-
-1.  **Calculate Value Density**: For every task $j$, calculate its "bang for buck":
-    $$ \text{Density}_j = \frac{\text{Value } v_j}{\text{Resource Request } r_j} $$
-2.  **Compare to Cost**: Compare this density to the market price of resources, $\lambda$ (e.g., cost per CPU-hour).
-3.  **The Decision Rule**:
-    *   **If Density > Price**: The task generates more value than it costs to run. **Run it.**
-    *   **If Density < Price**: The task costs more than its value. **Reject it.**
-    *   **If Density = Price**: It's a break-even. (Doesn't matter mathematically, practically reject).
-
-This independent check replaces the complex "bin packing" puzzle.
 
 #### 4.2.1. Algorithm: Soft Resource Allocation (Online, Bucket-Based)
 
@@ -316,121 +344,52 @@ Assume densities are discretized to integer levels (e.g., `d = floor(v/r)`):
 
 
 ---
-### 4.3. Proof of Softened LP Compliance
-We must prove that solving the "Soft" Linear Program (LP) actually gives us a valid, non-fractional answer (0 or 1) for the real world. This is the **Integrality Property**.
+## 5. Advanced Filtering Heuristics (The Improvement Layer)
 
-**The Logic**:
-1.  **Total Cost Equation**: In the elastic model, the total capacity we provision $C$ is exactly the sum of resources used by accepted tasks: $C = \sum r_j x_j$.
-2.  **Substitution**: We replace the unknown "Capacity" in the objective function with the tasks' resource usage.
-    *   *Original Objective*: $\text{Maximize } (\text{Total Value}) - (\text{Price} \times \text{Total Capacity})$
-    *   *Substituted*: $\text{Maximize } \sum v_j x_j - \lambda \sum r_j x_j$
-3.  **Regrouping**: We can group terms by task:
-    $$ \text{Maximize } \sum_{j=1}^m \underbrace{(v_j - \lambda r_j)}_{\text{Net Profit}_j} \cdot x_j $$
-4.  **Conclusion**:
-    *   To maximize the sum, we look at each task's **Net Profit** individually.
-    *   If $(v_j - \lambda r_j) > 0$, the only way to maximize the sum is to set $x_j$ to its maximum possible value, which is **1**.
-    *   If $(v_j - \lambda r_j) < 0$, we must set $x_j$ to **0**.
-    *   Therefore, the optimal solution to the continuous LP is **naturally integer** (0 or 1). We do not need complex integer solvers; the "soft" nature of the cloud constraint removes the fragmentation penalty that usually causes NP-Hardness.
+Once the core filtering logic is established, we can refine the `net_profit_j` calculation to handle complex, multi-dimensional, or dynamic environments. These heuristics act as **parameter plug-ins** for the base filter.
 
-**Time Complexity Verification**:
-The filtering algorithm requires:
-1.  Computing $v_j - \lambda r_j$ for each task: **$O(m)$**
-2.  Comparing to zero and setting $x_j$: **$O(m)$**
+### 5.1. Weighted Resource Scalarization (The Price Vector)
 
-**Total**: $O(m)$ — **Linear in the number of tasks** resulting clearly in **polynomial time** (class **P**). The elastic infrastructure assumption breaks the combinatorial barrier.
+**Connection to Section 3.1**: This is the **multi-dimensional extension** of the Linear Programming formulation. Instead of a single price $\lambda$, we use a **price vector** $\boldsymbol{\lambda} = [\lambda_{cpu}, \lambda_{mem}, \lambda_{gpu}, \dots]^\top$.
 
----
-### 4.4. Advanced Filtering Heuristics
-
-The base algorithm (Section 4.2.1) uses a simple profit check:
-```
-net_profit_j = v_j - λ × r_j
-```
-
-The following techniques **extend** this calculation without changing the O(m) complexity. They parameterize the `net_profit_j` computation to handle more complex scenarios:
-
-| Extension | Modified Formula | Use Case |
-|-----------|------------------|----------|
-| **Weighted Scalarization** | $\text{net\_profit}_j = v_j - \boldsymbol{\lambda}^\top \mathbf{r}_j$ | Multi-dimensional resources (CPU+RAM+GPU) |
-| **Shadow Pricing** | $\boldsymbol{\lambda} = \boldsymbol{\mu}$ (from LP duals) | Dynamic market-based pricing |
-| **Opportunity Cost** | $\text{net\_profit}_j = v_j - (\boldsymbol{\lambda}^\top \mathbf{r}_j + \Omega)$ | Stochastic high-value arrivals |
-
-**Key Insight**: These optimizations **plug into** the base algorithm's filtering condition (`net_profit_j > 0`), enhancing decision quality while preserving O(1) per-task complexity.
-
----
-
-When the system is multi-dimensional or dynamic, basic density is not enough. We optimize the filter using these techniques:
-
-#### 1. Weighted Resource Scalarization (The Price Vector)
-
-**Connection to Section 3.2**: This is the **multi-dimensional extension** of the Linear Programming formulation. Where Section 3.2 used a single price $\lambda$ for one resource dimension, we now use a **price vector** $\boldsymbol{\lambda} = [\lambda_{cpu}, \lambda_{mem}, \lambda_{gpu}, \dots]^\top$.
-
-**Formulation**: If tasks consume multiple resources, we project the multidimensional request $\mathbf{r}_j = [r_{j,cpu}, r_{j,mem}, \dots]^\top$ into a single cost scalar using a dot product:
-$$ \text{Effective Cost}_j = \boldsymbol{\lambda}^\top \mathbf{r}_j = \lambda_{cpu} \cdot r_{j,cpu} + \lambda_{mem} \cdot r_{j,mem} + \dots $$
-
-The filter threshold remains: Accept if $v_j > \boldsymbol{\lambda}^\top \mathbf{r}_j$.
-
-**Where $\boldsymbol{\lambda}$ comes from**:
-- **Market Prices**: Direct cloud pricing (e.g., $0.05/CPU-hour, $0.01/GB-hour)
-- **Shadow Prices**: Dual variables $\boldsymbol{\mu}$ from LP solver (Section 4.4.2 below)
-- **Fractional Optimum**: Efficiency ratio weights from Section 3.3
-
-
-
-#### 2. Dual Shadow Pricing
-In systems with a global budget or total resource cap, we solve the LP relaxed model once to find the **Dual Multipliers** (Shadow Prices). These duals represent the "hidden cost" of consuming one more unit of a scarce resource. We then use these duals as our $\lambda$ values for real-time filtering of new tasks.
-
-#### 3. Stochastic Reservation Price
-If high-value tasks arrive randomly, we might reject a "profitable" task now to save space for a "more profitable" one later. We adjust the filter by an **Opportunity Cost** term $\Omega$:
-$$ \text{Filter Rule: } v_j > (\boldsymbol{\lambda}^\top \mathbf{r}_j + \Omega) $$
+**Formulation**: We project the multidimensional request $\mathbf{r}_j$ into a single cost scalar using a dot product:
+$$ \text{Effective Cost}_j = \boldsymbol{\lambda}^\top \mathbf{r}_j = \sum_{k} \lambda_k \cdot r_{jk} $$
+The filter threshold remains: Accept if $v_j > \boldsymbol{\lambda}^\top \mathbf{r}_j$. This allows the filter to penalize tasks that consume disproportionate amounts of scarce resources (e.g., highly expensive GPU time).
 
 <details>
-<summary><strong>Numeric Example: Multi-Dimension Weighted Filtering</strong></summary>
+<summary>Numeric Example: Multi-Dimension Weighted Filtering</summary>
 
 **System State**: 
 *   CPU is cheap ($\lambda_{cpu} = 1.0$)
 *   RAM is scarce/expensive ($\lambda_{ram} = 5.0$)
 
 **Task J**: Value \$50, Request: 10 CPU, 5 RAM.
-1.  **Naive CPU Density**: $50/10 = 5.0$. (Looks great if price is 1.0).
+1.  **Naive CPU Density**: $50/10 = 5.0$. (Looks good if price is 1.0).
 2.  **Weighted Scalarization**:
     $$ \text{Total Cost} = (1.0 \times 10) + (5.0 \times 5) = 10 + 25 = \mathbf{\$35} $$
 3.  **Net Profit**: $50 - 35 = +\$15$.
 4.  **Result**: **ACCEPT**.
 
-**Analysis**: By using a weighted dot product, the filter automatically penalizes tasks that consume "scarce" resources, even if their primary resource (CPU) is abundant.
+**Analysis**: By using a weighted dot product, the filter automatically penalizes tasks that consume scarce resources, ensuring the "bottleneck" (RAM) is valued higher.
+
 </details>
 
----
+### 5.2. Dual Shadow Pricing (Dynamic Market)
 
-### 4.5. Deep Dive: Dual Shadow Pricing
-
-Shadow Pricing is the bridge between **Global Optimization** (the whole cluster state) and **Local Decisions** (should I accept this one pod right now?).
+In systems with a global resource cap, we solve the LP relaxed model periodically to find the **Dual Multipliers** $\boldsymbol{\mu}$ (Shadow Prices). 
 
 #### 1. The Essence: Marginal Value
-The **Shadow Price** of a resource is the answer to: *"If I could magically add exactly one more unit of CPU to my cluster right now, how much extra Value ($v$) could I generate?"*
-*   **Zero Shadow Price**: The resource is in surplus (slack). Adding more won't help because something else is the bottleneck.
-*   **High Shadow Price**: The resource is the primary bottleneck. It is "precious".
+The shadow price $\mu_k$ represents the **Marginal Value** of resource $k$. It answers: *"If I could add one more unit of CPU, how much extra value could I generate?"*
+- **Surplus**: If a resource is in surplus, its shadow price is **0**.
+- **Bottleneck**: If a resource is the primary constraint, its shadow price will spike.
 
-#### 2. Formal Definition (The Dual)
-In the Linear Programming formulation of Section 3.2, every capacity constraint $\sum r_{ji} y_{ji} \le C_i$ has an associated **Dual Variable** $\mu_i$.
-*   **The Primal Problem** asks: *"How many tasks can I pack to maximize value?"*
-*   **The Dual Problem** (Shadow Pricing) asks: *"What is the minimum 'rental value' I must assign to each unit of resource for the cluster to break even?"*
-
-Mathematically, if $Z^*$ is the optimal value of our objective function, then:
-$$ \mu_i = \frac{\partial Z^*}{\partial C_i} $$
-
-#### 3. Strategic Usage in Optimization
-We use Shadow Pricing to create a self-correcting market inside the scheduler:
-1.  **Solve Periodic LP**: Every few minutes, solve the global LP using the current "Queued" demand to get the Shadow Prices ($\boldsymbol{\mu} = [\mu_{cpu}, \mu_{mem}, \dots]$).
-2.  **Set Admission Floor**: Use these $\mu$ values as the $\lambda$ parameters in our filtering rule:
-    $$ \text{Accept Task } j \text{ IF: } v_j > \sum_{k} \mu_k \cdot r_{jk} $$
-3.  **Dynamic Adjustment**: 
-    *   As the cluster fills up with memory-heavy tasks, the **Shadow Price of Memory ($\mu_{mem}$)** will spike.
-    *   This automatically makes the filter "stricter" for memory-heavy tasks, effectively reserving the remaining RAM only for the highest-value users.
+#### 2. Strategic Admission Floor
+We use these duals as the dynamic $\lambda$ parameters in our filter:
+$$ \text{Filter Rule: } v_j > \boldsymbol{\mu}^\top \mathbf{r}_j $$
+As the cluster fills up, the shadow prices for the most constrained resources increase, automatically making the filter stricter for tasks that consume them. This **reserves** the remaining capacity for only the highest-priority tasks.
 
 <details>
-<summary><strong>Numeric Example: The Price of a Bottleneck</strong></summary>
+<summary>Numeric Example: Shadow Pricing (The Price of a Bottleneck)</summary>
 
 **System**: Node with 10 units of CPU.
 **Queue**: 
@@ -440,257 +399,118 @@ We use Shadow Pricing to create a self-correcting market inside the scheduler:
 
 **Optimal Solution**: Pick any two (Total Value 20).
 **Shadow Price Analysis**:
-If you increase capacity to **11**, you still can't pick Task C (needs 5). The value stays 20. Shadow Price = **$0$**.
-If you increase capacity to **15**, you can now pick the 3rd task. The value jumps to 30.
-The **average shadow price** over that range is $\frac{30 - 20}{15 - 10} = \mathbf{2.0}$ per CPU. 
+- If capacity increases to **11**, value stays 20. Shadow Price = **$0$**.
+- If capacity increases to **15**, value jumps to 30.
+- **Average Shadow Price** over range [10-15] = $\frac{30 - 20}{15 - 10} = \mathbf{2.0}$ per CPU. 
 
-**Application**: To "buy" your way into this node, a task must have a Value Density $> 2.0$.
+**Strategic Application**: A new task must have a Value Density $> 2.0$ to justify its admission during peak load.
+
 </details>
+
+### 5.3. Stochastic Reservation Price (Stochasticity)
+
+If high-value tasks arrive randomly over time, we might reject a "profitable" task now to save space for a "more profitable" one expected later. We adjust the filter by an **Opportunity Cost** term $\Omega$:
+$$ \text{Filter Rule: } v_j > (\boldsymbol{\lambda}^\top \mathbf{r}_j + \Omega) $$
+$\Omega$ is estimated based on arrival statistics and the remaining time window.
 
 ---
 
-## 5. Heuristic Approximations: Scaled N-Node Systems
+## 6. Unified Summary: Filtering Variants
 
-We can add a layer of generalization between the "Hard" (Single Node) and "Soft" (Infinite Cloud) regimes: the **$N$-Node Cluster**. Here, we have fixed total capacity but distributed across $N$ nodes.
+The following table summarizes all the "Soft" filtering variants developed in this document. Each variant is a specialized realization of the generic threshold condition: **Accept if $v_j > \text{Threshold}_j$.**
 
-Solving this optimally is still NP-Hard (Multiple Knapsack), but in practice, we use **Heuristics** (Approximation Algorithms) that simulate filling nodes on-the-line.
+| Variant | Formulation | Parameter | Basis | Use Case | Complexity |
+|---------|-------------|-----------|-------|----------|------------|
+| **Linear Profit** | $v_j - \lambda r_j$ | $\lambda$ (Price) | Primal LP | Standard Cloud | O(m) |
+| **Fractional** | $\sum v / \sum r$ | $\lambda^*$ (Ratio) | Dual LP | Max Efficiency | O(m) |
+| **Weighted** | $v_j - \boldsymbol{\lambda}^\top \mathbf{r}_j$ | $\boldsymbol{\lambda}$ (Vector) | Proj. LP | Multi-Resource | O(m) |
+| **Shadow Pricing** | $v_j - \boldsymbol{\mu}^\top \mathbf{r}_j$ | $\boldsymbol{\mu}$ (Duals) | KKT Duals | Dynamic Budget | O(LP solve) |
+| **Stochastic** | $v_j - (\lambda r + \Omega)$ | $\Omega$ (Opp. Cost) | Prob. Model | Cloud Fast-Track | O(m) |
 
-### 5.1. Algorithm: Density-Aware Best-Fit (Sort & Assign)
+### Strategic Guidelines
+1.  **Static Markets**: Use the **Linear Profit** model if cloud prices are known constants.
+2.  **Resource Bottlenecks**: Use **Shadow Pricing** to automatically detect and penalize the scarcest resource in a shared cluster.
+3.  **Efficiency Audits**: Use **Fractional Programming** to determine the maximum possible throughput regardless of absolute cost.
+4.  **High Volatility**: Add an **Opportunity Cost** buffer if you expect sudden arrivals of critical high-value workloads.
 
-**Connection to Section 4.2.1**: This algorithm **reuses** the soft resource allocation filter but adapts it for **fixed-capacity N-node clusters**. Instead of infinite elastic capacity, we now have $N$ fixed nodes and must decide **which node** gets each profitable task.
+---
 
-**Key Difference**:
-- **Section 4.2.1 (Soft)**: Filter tasks by `net_profit_j > 0` → Accept all profitable tasks → Provision exact capacity
-- **Section 5.1 (N-Node)**: Filter tasks by density **and** find best node fit → Limited capacity → Heuristic assignment
+## 7. The Allocation Recipe: Generalized N-Node Systems
 
-**How the Filter is Reused**:
-1. **Density Computation**: Same as Section 4.2.1 (`density_j = v_j / r_j`)
-2. **Profitability Check**: Can optionally pre-filter using `net_profit_j > 0` before assignment
-3. **Bucket Organization**: Can use same bucket structure from Section 4.2.1 for O(m) sorting
-4. **Node Selection**: NEW step that picks which fixed node gets the task
+In real clusters, we often face the **N-Node Regime**: total capacity is fixed but distributed across $N$ nodes. We can solve this by using our developed filtering techniques as a **decision pre-processor**.
 
-**Algorithm Steps**:
-1.  **Sort Tasks**: Order all tasks by Value Density (descending): $\text{Density}_j = v_j / r_j$ *(reuses Section 4.2.1 buckets)*.
-2.  **For Each Task** (in sorted order):
-    *   **Compute Node Scores**: For each node $i$, calculate its current **Utilization Density**:
-        $$ \text{UtilDensity}_i = \frac{\text{Total Value on Node } i}{\\text{Total Resources Used on Node } i} $$
-    *   **Best-Fit Rule**: Assign task to the node with the **highest utilization density** that still has capacity.
-    *   **Rationale**: Matching high-value tasks to already-efficient nodes maintains or improves their density, avoiding "dilution" of value.
+### 7.1. The Generalized Allocation Algorithm
 
-**Why This Works**:
-*   High-density tasks fill nodes first (greedy by value).
-*   Nodes with high utilization density are "proven winners" — adding more high-value tasks keeps them efficient.
-*   This approximates the optimal bin-packing solution for large $N$ without solving an NP-Hard problem.
+This algorithm treats the specific filter (Linear, Shadow, etc.) as a **modular plug-in**, allowing it to handle everything from simple CPU scaling to complex multi-resource shadow pricing.
+
+```
+Algorithm: GENERALIZED_SOFT_ALLOCATOR
+Input:  T = {Queue of Tasks}
+        Context = {Resource Prices, Duals, or Efficiency Ratios}
+State:  Nodes = {N nodes with remaining capacity C_i}
+
+// 1. Filtering & Sorting Phase (Global Optimization)
+FOR each task j in T:
+    // CALL Generalized Filter (from Chapter 6)
+    NetProfit_j = COMPUTE_FILTER(task_j, Context)
+    
+    IF NetProfit_j > 0:
+        Add j to FilteredList
+    ELSE:
+        Reject j
+
+Sort FilteredList by "Bang-per-buck" (from Context)
+
+// 2. Assignment Phase (Heuristic Best-Fit)
+FOR each task j in FilteredList (descending order):
+    Find node i with:
+    - Sufficient capacity C_i
+    - Best-Fit Score (e.g., Highest Utilization Density)
+    
+    IF node i found:
+        Allocate j to node i
+        Update C_i = C_i - r_j
+    ELSE:
+        Provision/Scale new node (if Soft) OR Defer j (if Hard)
+```
 
 <details>
-<summary><strong>Simulation: Filling 2 Nodes (Density-Aware Best-Fit)</strong></summary>
+<summary>Numeric Example: Filling 2 Nodes (Density-Aware Best-Fit)</summary>
 
 **Setup**:
 *   **Nodes**: Node 1 (Cap 10), Node 2 (Cap 10).
-*   **Stream of Tasks** (Unsorted):
-    1.  Task A (Size 4, Value 8) → Density 2.0
-    2.  Task B (Size 6, Value 9) → Density 1.5
-    3.  Task C (Size 5, Value 15) → Density 3.0
-    4.  Task D (Size 4, Value 12) → Density 3.0
+*   **Tasks**: C (Dens 3.0, Size 5), D (Dens 3.0, Size 4), A (Dens 2.0, Size 4), B (Dens 1.5, Size 6).
 
-**Step 1: Sort by Density**
-*   **Sorted Order**: C (3.0), D (3.0), A (2.0), B (1.5)
-
-**Step 2: Assign Greedily**
-
-1.  **Task C** (Density 3.0, Size 5) → Both nodes empty. Assign to **Node 1**.
-    *   Node 1: Used 5/10. Value 15. UtilDensity = 15/5 = **3.0**.
-    
-2.  **Task D** (Density 3.0, Size 4) → Check nodes:
-    *   Node 1: UtilDensity 3.0. Capacity? 5+4=9 ≤ 10. ✅ **Fits**.
-    *   Node 2: UtilDensity N/A (empty). 
-    *   **Best Fit**: Node 1 (matches density 3.0).
-    *   Node 1: Used 9/10. Value 27. UtilDensity = 27/9 = **3.0**.
-
-3.  **Task A** (Density 2.0, Size 4) → Check nodes:
-    *   Node 1: Used 9/10. 9+4=13 > 10. ❌ **No room**.
-    *   Node 2: Empty. ✅ **Fits**.
-    *   Assign to **Node 2**.
-    *   Node 2: Used 4/10. Value 8. UtilDensity = 8/4 = **2.0**.
-
-4.  **Task B** (Density 1.5, Size 6) → Check nodes:
-    *   Node 1: 9+6=15 > 10. ❌ **No room**.
-    *   Node 2: 4+6=10. ✅ **Fits**.
-    *   Assign to **Node 2**.
-    *   Node 2: Used 10/10. Value 17. UtilDensity = 17/10 = **1.7**.
+**Step-by-Step Assignment**:
+1.  **Task C** (Size 5) → Assign to **Node 1**. (Used 5/10, UtilDensity 3.0)
+2.  **Task D** (Size 4) → Fits in Node 1. Assign to **Node 1**. (Used 9/10, UtilDensity 3.0)
+3.  **Task A** (Size 4) → Node 1 is full (needs 4). Assign to **Node 2**. (Used 4/10, UtilDensity 2.0)
+4.  **Task B** (Size 6) → Fits in Node 2. Assign to **Node 2**. (Used 10/10, UtilDensity 1.7)
 
 **Final State**:
-*   **Node 1**: Tasks C+D. Used 9/10. Value **27**. Avg Density **3.0**.
-*   **Node 2**: Tasks A+B. Used 10/10. Value **17**. Avg Density **1.7**.
+*   **Node 1**: (C+D), Value **27**, Waste **1**.
+*   **Node 2**: (A+B), Value **17**, Waste **0**.
 
-**Total Value**: **44** (vs. 44 in Round-Robin, but better utilization distribution).
+**Insight**: Concentrating high-value tasks into discrete "premium" nodes optimizes cluster-wide utilization.
 
-**Insight**: By sorting and assigning to high-density nodes first, we concentrate high-value tasks, making some nodes "premium" and others "budget". This is useful for tiered pricing or quality-of-service strategies.
 </details>
 
-
-## 6. Comparative Example: Hard vs. Soft
-
-Let's illustrate the difference with a concrete scenario.
-
-**Scenario**: 3 Tasks, Resource = CPU.
-*   **Task A**: Value \$10, Request 5 CPU (Density \$2.0/CPU)
-*   **Task B**: Value \$15, Request 5 CPU (Density \$3.0/CPU)
-*   **Task C**: Value \$12, Request 4 CPU (Density \$3.0/CPU)
-
-<details>
-<summary><strong>Case 1: Hard Regime (Fixed Node)</strong></summary>
-
-**Constraints**: Single Node with Capacity **9 CPU**.
-
-We must fit tasks into the size 9 box.
-*   **Option 1 (A + C)**: Size $5+4=9$. fits. Value $10+12 = 22$.
-*   **Option 2 (B + C)**: Size $5+4=9$. fits. Value $15+12 = 27$.
-*   **Option 3 (A + B)**: Size $5+5=10$. **Exceeds capacity**. Invalid.
-
-**Combinatorial Difficulty**: We had to check combinations to find the best fit. Option 3, despite having the highest raw value ($25$), was impossible due to the hard constraint ("Fragmentation").
-
-**Result**: Select **B + C**. Value **27**. Wasted Space: 0.
-</details>
-
-<details>
-<summary><strong>Case 2: Soft Regime (Elastic Cloud)</strong></summary>
-
-**Constraints**: Unlimited scale, Cost **$\lambda = \$2.5$ per CPU**.
-
-We strictly apply the density rule ($v_j/r_j > \lambda$).
-*   **Task A**: Density $2.0$. Price $2.5$. $2.0 < 2.5 \implies$ **REJECT**.
-*   **Task B**: Density $3.0$. Price $2.5$. $3.0 > 2.5 \implies$ **ACCEPT**.
-*   **Task C**: Density $3.0$. Price $2.5$. $3.0 > 2.5 \implies$ **ACCEPT**.
-
-**Linear Simplicity**: We checked each item independently. No combinations needed.
-Note that Task A was rejected not because it "didn't fit" (we have infinite space), but because it wasn't *profitable*.
-
-**Result**: Select **B + C**. Total Value 27. Total Cost $9 \times 2.5 = 22.5$. Net Profit 4.5.
-</details>
-
-### Visualizing the Transition
-
-The following diagram contrasts the "Tetris-like" packing of the Hard Regime with the "Level-based" filtering of the Soft Regime.
-
-```mermaid
-graph TD
-    subgraph Hard["Hard Regime (Tetris Constraint)"]
-        direction TB
-        
-        %% The Bin acting as a container
-        subgraph Bin["Fixed Node (Capacity 9)"]
-            direction TB
-            Slot1["Task B (Size 5)"]
-            Slot2["Task C (Size 4)"]
-        end
-        
-        %% The piece that doesn't fit
-        TaskA["Task A (Size 5)"]
-        
-        %% Visual connection implying attempt to fit
-        TaskA -. "Cannot Fit!<br>(Fragmentation)" .-> Bin
-        
-        %% Styling to look like blocks
-        style Bin fill:#ffe,stroke:#333,stroke-width:4px
-        style Slot1 fill:#f96,stroke:#333,shape:rect
-        style Slot2 fill:#fc6,stroke:#333,shape:rect
-        style TaskA fill:#f66,stroke:#333,stroke-dasharray: 5 5
-    end
-
-    subgraph Soft["Soft Regime (Elastic Price)"]
-        direction TB
-        Filter{"Price Filter<br>(Density > 2.5?)"}
-        
-        InputA["Task A (Dens 2.0)"] --> Filter
-        InputB["Task B (Dens 3.0)"] --> Filter
-        InputC["Task C (Dens 3.0)"] --> Filter
-        
-        Filter -- "Reject" --> BinA[Trash]
-        Filter -- "Accept" --> Cloud[Cloud Resource]
-        
-        style Filter fill:#69f,stroke:#333
-        style Cloud fill:#9f9,stroke:#333
-    end
-```
+### 7.2. Why the Generalized Filter Works
+By separating the **Filtering Logic** (Optimization) from the **Assignment Logic** (Packing), we gain three advantages:
+- **Logical Independence**: You can upgrade your "Price Model" (e.g., moving from static $\lambda$ to dynamic shadow prices $\mu$) without changing the assignment logic.
+- **Complexity Partitioning**: The heavy mathematical lifting (Linearization) is done in the O(m) filter, leaving the NP-Hard bin-packing step to a simple O(m·N) heuristic that performs well in practice.
+- **Soundness**: Sorting by the "Generalized Density" (the basis of the filter) ensures that the most system-efficient tasks get first pick of the best node "slots", approximating the global optimum of the MMKP.
 
 ---
 
-## 6.1. Summary: Filtering Variants Within the Soft Allocation Scheme
-
-Throughout this document, we developed a **generic soft filter framework** (Section 4.2.1) and multiple **specialized variants** that extend it for different scenarios. All variants share the core structure:
-
-```
-Generic Soft Filter:
-  FOR each task j:
-    Compute: net_profit_j = f(v_j, r_j, parameters)
-    IF net_profit_j > threshold THEN ACCEPT
-```
-
-The following table summarizes all variants developed:
-
-| Variant | Section | Net Profit Formula | Parameters | Use Case | Complexity |
-|---------|---------|-------------------|------------|----------|------------|
-| **Base (Single-Dimension)** | 4.2.1 | $v_j - \lambda \cdot r_j$ | $\lambda$ (price) | Single resource (CPU only) | O(m) |
-| **Weighted Scalarization** | 4.4.1 | $v_j - \boldsymbol{\lambda}^\top \mathbf{r}_j$ | $\boldsymbol{\lambda}$ (price vector) | Multi-resource (CPU+RAM+GPU) | O(m) |
-| **Shadow Pricing** | 4.4.2, 4.5 | $v_j - \boldsymbol{\mu}^\top \mathbf{r}_j$ | $\boldsymbol{\mu}$ (LP duals) | Dynamic market pricing | O(m) + O(LP solve) amortized |
-| **Stochastic Reservation** | 4.4.3 | $v_j - (\boldsymbol{\lambda}^\top \mathbf{r}_j + \Omega)$ | $\Omega$ (opportunity cost) | Random high-value arrivals | O(m) |
-| **Fractional Efficiency** | 3.3 | $\frac{\sum v_j x_j}{\sum r_j x_j}$ (global) | $\lambda^*$ (efficiency ratio) | Budget-agnostic optimization | O(m) via Charnes-Cooper |
-| **N-Node Best-Fit** | 5.1 | Reuses base + node scoring | Density + UtilDensity | Fixed N-node clusters | O(m·N) |
-
-### Parameter Sources
-
-The key to all variants is choosing appropriate parameters:
-
-| Parameter | How to Obtain | When to Use |
-|-----------|---------------|-------------|
-| **$\lambda$ (scalar)** | Market price, cloud pricing | Single resource, known cost |
-| **$\boldsymbol{\lambda}$ (vector)** | Multi-resource market prices | CPU+RAM+GPU, known costs |
-| **$\boldsymbol{\mu}$ (duals)** | Solve LP periodically (Section 4.5) | Unknown prices, dynamic demand |
-| **$\lambda^*$ (ratio)** | Fractional programming (Section 3.3) | Budget-agnostic, maximize efficiency |
-| **$\Omega$ (opportunity)** | Statistical estimation, forecasting | Stochastic arrivals, capacity reservation |
-
-### Unified Framework
-
-All filtering variants follow the same execution pattern:
-
-```
-1. Parameterization Phase (choose λ, μ, or Ω)
-   ├─ Static: Use market prices
-   ├─ Dynamic: Solve LP for shadow prices
-   └─ Adaptive: Update Ω based on arrival statistics
-
-2. Filtering Phase (Section 4.2.1 base algorithm)
-   ├─ Compute density_j for bucket organization
-   ├─ Compute net_profit_j using chosen parameters
-   └─ Accept if net_profit_j > 0
-
-3. Allocation Phase
-   ├─ Infinite capacity: Provision exactly Σr_j (Soft, Section 4.2.1)
-   └─ Fixed capacity: Assign to best node (N-Node, Section 5.1)
-```
-
-### Key Insights
-
-1. **O(m) Complexity Preserved**: All variants maintain linear time per task (filtering remains O(1))
-2. **Plug-in Architecture**: Parameters change, algorithm structure stays the same
-3. **Incremental Sophistication**: Start simple (scalar λ), add complexity as needed (vector, duals, stochastic)
-4. **Theoretical Grounding**: All variants derive from LP (Section 3.2) or Fractional (Section 3.3) formulations
-
-This unified view shows that soft resource allocation is not multiple algorithms but **one flexible framework** parameterized for different operational scenarios.
-
----
-
----
-
-## 7. Related Problems
+## 8. Related Problems
 
 *   **[Knapsack Problem (Main)](00-knapsack_problem.md)**: The classical 0/1 Knapsack and its complexity analysis.
 *   **[Multiple Knapsack Problem](03-multiple_subset_sum_problem.md)**: The general case of distributing items into multiple bins.
 
 ---
 
-## 8. Conclusion
+## 9. Conclusion
 
 *   **Fixed Infrastructure** requires solving the **NP-Hard** MMKP to manage fragmentation and packing efficiency.
 *   **Elastic Infrastructure** allows transforming the problem into simple **Filtering/Knapsack-style** decisions based on value density, solvable in linear time or via simple LP.
